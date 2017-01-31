@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Kundregistret</title>
+<link rel="stylesheet" href="custSearchButtons3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/css/theme.blue.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/jquery.tablesorter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/widgets/widget-filter.min.js"></script>
+<script src="//cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
+<script src="pouchReadWrite10.js"></script>
+<script src="jsHelpFunctions2.js"></script>
+<script src="custSearch10.js"></script>
+</head>
+<body>
+
+<div id="searchdiv">
+<label class="addCustomerButton" onclick="addCustomerId()">Lägga till ny kund.</label>
+<!--   label class="resetPage" onclick="resetCustomers()">Återställ (endast utveckl.)</label -->
+<label class="configPage" onclick="configPage()">Konfiguration</label>
+<label class="orderSearchButton" onclick="orderSearch()">Beställningar</label>
+<label class="emailCustomerButton" onclick="emailCustomer()">E-post till kund</label>
+<label class="logoutButton" onclick="logout()">Logout</label>
+
+<label class="infoAreaField">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Klicka på rad som skall ändras.</b></label>
+<br><br>
+<input class="search" type="search" data-column="all"> (Sök i alla kolumner)<br>
+<br>
+<!-- targeted by the "filter_reset" option -->
+<button type="button" class="reset">Återställ Sökning</button>
+
+<table class="tablesorter" id="nisse">
+	<thead>
+		<tr>
+		<th>Nr</th>
+		<th>Lag</th>
+	    <th>Kontakt</th>
+		<th data-placeholder="Associativ...">Kundnamn</th>
+		<th>Leveransadress</th>
+		<th>Dist.lista</th>
+		<th>Postnr</th>
+		<th>Ort</th>
+		<th>Mobilnr</th>
+		<th>Telefon 2</th>
+		<th>Skicka e-post</th>
+		<th>E-post</th>
+		<th>Säljare</th>
+		<th>Uppsagt datum</th>
+		<th>Kommentar</th>
+		<th>Bet.sätt</th>
+		<th>Leverans</th>
+		<th>Lev.kommentar, synlig på; distlista</th>
+		<th>Fakt.adress</th>
+		<th>Alt.leveransnamn</th>
+		<th>Alt.leveransadress</th>
+		<th>Alt.distlista</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+</div>
+</body>
+</html>
