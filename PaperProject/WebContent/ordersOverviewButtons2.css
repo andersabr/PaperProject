@@ -1,0 +1,55 @@
+@CHARSET "ISO-8859-1";
+.searchdiv {
+  position: relative;
+  margin: 10px 0;
+}
+.resetOrdersButton {
+   background: #99bfe6;
+   border: #888 1px solid;
+   color: #111;
+   border-radius: 5px;
+   padding: 5px;
+   position: relative;
+   right: 0;
+   bottom: 0;
+}
+.listAllButton {
+   background: #99bfe6;
+   border: #888 1px solid;
+   color: #111;
+   border-radius: 5px;
+   padding: 5px;
+   position: relative;
+   right: 0;
+   bottom: 0;
+}
+.listAllOrdersButton {
+   background: #99bfe6;
+   border: #888 1px solid;
+   color: #111;
+   border-radius: 5px;
+   padding: 5px;
+   position: relative;
+   right: 0;
+   bottom: 0;
+}
+.logoutButton{
+   background: #99bfe6;
+   border: #888 1px solid;
+   color: #111;
+   border-radius: 5px;
+   padding: 5px;
+   position: relative;
+   right: 0;
+   bottom: 0;
+}
+.reset {
+   background: #99bfe6;
+   border: #888 1px solid;
+   color: #111;
+   border-radius: 5px;
+   padding: 5px;
+   position: relative;
+   right: 0;
+   bottom: 0;
+}

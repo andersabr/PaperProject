@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Beställningar</title>
+<link rel="stylesheet" href="ordersOverviewButtons2.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/css/theme.blue.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/jquery.tablesorter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/widgets/widget-filter.min.js"></script>
+<script src="//cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
+<script src="pouchReadWrite10.js"></script>
+<script src="jsHelpFunctions2.js"></script>
+<script src="ordersOverview.js"></script>
+
+</head>
+<body>
+<div id="searchdiv">
+<!--  label class="resetOrdersButton" onclick="resetOrders()">Återställ Beställningar(endast utveckl.)</label -->
+<label class="listAllButton" onclick="listAllId()">Kundregistret</label>
+<!--   label class="listAllOrdersButton" onclick="listOrdersId()">Beställningar(gammal)</label -->
+<label class="logoutButton" onclick="logout()">Logout</label>
+
+<label class="infoAreaField">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Klicka på rad för att uppdatera kundens beställning.</b></label>
+<br>
+<br>
+<!-- input class="search" type="search" data-column="all"> (Sök i alla kolumner)<br>
+<input class="search" type="search" data-column="1"> (Kundnamn; Associativ sökning...)<br>
+<br -->
+<!-- targeted by the "filter_reset" option -->
+<button type="button" class="reset">Återställ Sökning</button>
+
+<table class="tablesorter" id="nisse">
+	<thead>
+		<tr>
+			<th>Beställnings Nr</th>
+			<th data-placeholder="Associativ...">Kundnamn</th>
+			<th>Lambi Hushåll</th>
+			<th>Lambi Toalett</th>
+			<th>Serla Hushåll</th>
+			<th>Serla Toalett</th>
+			<th>Totalkostnad</th>
+			<th>Beställningsdatum</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+</div>
+</body>
+</html>
