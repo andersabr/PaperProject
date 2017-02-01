@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+	<title>Uppdatera Kundinfo</title>
+	<link rel="stylesheet" href="custEditButtons2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/css/theme.blue.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/jquery.tablesorter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/widgets/widget-editable.min.js"></script>
+    <script src="//cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
+    <script src="pouchReadWrite10.js"></script>
+    <script src="jsHelpFunctions2.js"></script>
+    <script src="custEdit6.js"></script>
+
+<!--  style id="css">
+.tablesorter tbody > tr > td[contenteditable=true]:focus {
+	outline: #08f 1px solid;
+	background: #eee;
+	resize: none;
+}
+td.no-edit, span.no-edit {
+	background-color: rgba(230,191,153,0.5);
+}
+.focused {
+	color: blue;
+}
+td.editable_updated {
+	background-color: green;
+	color: white;
+}
+</style -->
+
+</head>
+<body>
+    <!-- THE BUTTONS -->
+    <!-- input id="listAll" type="button" class="hidden" -->
+	<label class="listAllButton" onclick="listAllId()">Kundregistret</label>
+	<!--button class="auto">Toggle</button> <code>editable_autoAccept&nbsp;&nbsp;&nbsp;&nbsp;: <span>true</span></code>
+	<button class="enter">Toggle</button> <code>editable_enterToAccept : <span>true</span></code -->
+	<!-- 2 next buttons are conditional -->
+	
+    <label class="editOrderButton" id="conditional2" onclick="editOrder()">Kundens beställning</label>
+	<label class="cancelNewButton" id="conditional" onclick="removeCustomerId()">Ångra ny kund</label>
+	<label class="infoAreaField">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<b>Editera det eller de fält som skall ändras. Glöm inte att klicka på Spara/Ångra.</b></label>
+	<br>
+	<br>
+
+	<table id="nisse" class="tablesorter">
+	<thead>
+		<tr>
+		<th>Nr. (ej editerbar)</th>
+		<th>Lag</th>
+		<th>Kontakt</th>
+		<th>Kundnamn</th>
+		<th>Leveransadress</th>
+		<th>Dist.lista</th>
+		<th>Postnr</th>
+		<th>Ort</th>
+		<th>Mobiltelefon</th>
+		<th>Telefon 2</th>
+		<th>Skicka e-post</th>
+		<th>E-post</th>
+		<th>Säljare</th>
+		<th>Uppsagt datum</th>
+		<th>Kommentar</th>
+		<th>Bet.s&#228;tt</th>
+		<th>Leverans</th>
+		<th>Lev.kommentar, synlig p&#229; distlista</th>
+		<th>Fakt.adress</th>
+		<th>Alt.leveransnamn</th>
+		<th>Alt.leveransadress</th>
+		<th>Alt.distlista</th>
+		<th>Transaktion (ej editerbar)</th>
+		</tr>
+	</thead>
+	<tbody >
+</table>
+
+<div id="myDIV">
+</div>
+<!--  script>
+$(function() {
+	var wo = $('#nisse')[0].config.widgetOptions;
+	$('.enter').click(function(){
+		var t = wo.editable_enterToAccept = !wo.editable_enterToAccept;
+		$(this).next().find('span').html('' + t);
+	});
+	$('.auto').click(function(){
+		var t = wo.editable_autoAccept = !wo.editable_autoAccept;
+		$(this).next().find('span').html('' + t);
+	});
+});
+</script -->
+</body>
+</html>
+
