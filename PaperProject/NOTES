@@ -1,0 +1,132 @@
+
+Notes
+=====
+Pages:
+------
+Beställningar
+Uppdatera Beställning 
+Kunder
+Uppdatera Kundinfo
+Konfiguration
+E-mail
+
+
+
+Issues:
+--------
+
+
+Page: Beställningar
+Issue: After "Uppdatera Beställning" when closing the popup. The page is not reloaded/refreshed.
+
+Page:  Beställningar, Uppdatera Beställning 
+Issue: The products shall have be lited in the order: Serla toa, Serla hh, Lambi Toa and Lambi hh 
+
+Page: Konfigurartion
+Styling of submit buttons is wrong.
+
+Page: Beställningar
+Issue: Column sizes should be variable. E.g. number of items ordered should be smaller.
+
+Page: All
+Issue:  When clearing the browser history the DB connextion is lost.
+
+Page: Konfiguration
+Issue: Saving config makes E-mail bcc, subject and message undefined. 
+They shall not be touched!!  bcc shall be configured in config form (not in E-mail form)
+
+
+
+Issues that are fixed
+-----------------------
+
+[ Page: Uppdatera Beställning (Kundregistret)
+  Issue: After deleting the browser cache, the page does not come up when coming from page Kundregistret ,
+
+  Fixed by also syncronizing with orders in Couch when loading Kundregistret  ]  
+  																			
+[ Page:  Uppdatera Beställning 
+ Issue. Timestamp is stored in the browser cache.
+
+  Fixed by sending unique parameter (e.g. current time) in the http request  ]
+  
+  
+[ Page:  Uppdatera Beställning 
+  Issue: Fields in form are not aligned on page. 
+
+  Fixed by inserting the form inside a table    ]
+
+
+[ Page: Betställningar, Uppdatera beställning
+  Issue: An updated customer name does not show for new/updated orders
+  Fixed by changíng the name in the ored most recently made ]
+
+
+
+Functions:
+----------
+- Backup of DB
+  Nothing has been done here. Probably copy files on remote DBs.
+  
+- Hosting the pages and having CouchDB on the net
+  CouchDB 2.0 current running on Raspberry Pi / Rasbian
+  Looking for a site to host the pages --- Bredbansdbolaget?
+  Couch DB can run on Rasberry connected to wireless Router at home.
+  nodemailer can too.
+   
+- Authentication
+  Will use authentication in CouchDB. Nothing done yet
+
+- Email
+  Fix automatic mail sending.
+  
+- javascript libs shall be stored locally  
+  
+- Running without connection
+  Should be possible to read DB data from local PouchDB
+  
+ -Possible to configure file names of db initial data (customers and orders).
+  Currently this is hardcoded in program.
+  
+- Summing up the orders and display result dynamically on top of page "Beställningar"
+ 
+- Possible to configure the Sender of the E-mail (inside nodemailer).
+
+- Possible to configure mailer URL in config DB, currently it is hardcoded to 127.0.0.1.  
+
+
+ 
+
+
+
+
+
+
+ 
+ Verktykstips
+ ============	
+ 	com:
+ 	Fiddler
+ 	
+ 	test:
+ 	Crome extension: postman
+ 	
+ 	
+ 	API:
+ 	ajax:
+ 	dotnet:
+ 	
+
+ 	contract first - swaggy (protopyping)
+ 	
+ 	Tomas Billborn  -npm
+ 	
+ 	
+JUNK
+========= 	
+ 	
+ background-color: #9fbfdf !important; 
+#background-color:#efefef;
+#background-color: #428bce !important;
+ 	
+ 
