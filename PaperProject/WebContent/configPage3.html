@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Konfiguration</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="configPageButtons.css">
+<script src="//cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script src="pouchReadWrite10.js"></script>
+<script src="jsHelpFunctions2.js"></script>
+<script src="configPage3.js"></script>
+</head>
+<body>
+<div id="searchdiv">
+<label class="listAllButton" onclick="listAllId()">Kundregistret</label>
+<label class="orderSearchButton" onclick="orderSearch()">Beställningar</label>
+
+<!--  label class="emailCustomerButton" onclick="emailCustomer()">E-post till kund</label 
+-->
+<label class="logoutButton" onclick="logout()">Logout</label>
+</div>
+
+<h3>DB server IP-adress</h3>
+<div class="container" id="dbIpDIV">
+</div>
+
+<h3>Ladda/återställa data</h3>
+
+<label class="resetPage" onclick="resetCustomers()">Återställ Kundregister</label>
+<P>
+<label class="resetOrdersButton" onclick="resetOrders()">Återställ Beställningar</label>
+
+<h3>Konfiguration</h3>
+<div class="container" id="configDIV">
+</div>
+<script>	    
+createConfigPage();
+</script>
+</body>
+</html>
