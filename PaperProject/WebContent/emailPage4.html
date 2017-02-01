@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-post till kund</title>
+<!-- link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/cupertino/jquery-ui.css" -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<!-- class="ui-theme"  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0//css/theme.blue.min.css">
+<!--  link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajaxcdnjs/ajax/libs/jquery.tablesorter/2.25.0/css/theme.default.min.css" -->
+<link rel="stylesheet" href="emailPage4.css">
+<!-- Firebase -->
+<script src='https://cdn.firebase.com/js/client/2.3.0/firebase.js'></script>
+<script src="//cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/jquery.tablesorter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/jquery.tablesorter.widgets.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/widgets/widget-columnSelector.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.9.0/validate.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="pouchReadWrite10.js"></script>
+<script src="jsHelpFunctions2.js"></script>
+<script src="emailPage4.js"></script>
+<script>
+</script>
+</head>
+<body class="ollepelle">
+<div class="panel ollepelle" style="width:100%">
+<div class="panel-heading"><h4><b>E-post data</b></h4></div>
+<!-- p id="emailcustomers"></p -->
+<div class="panel-body ollepelle">
+<!--  style="height:40%" -->
+<table class="tablesorter" id="nisse">
+	<thead>
+		<tr>
+			<!-- Remove column from selection popup by including -->
+			<!-- data-priority="Anything other than 1-6" OR data-column-selector="false" OR  class="columnSelector-false" -->
+			<!-- th class="columnSelector-false">Kundnamn</th -->
+			<th data-priority="critical">Kund Nr.</th>
+		    <th data-priority="1">E-post</th>
+		    <th data-priority="1">Lambi Hushåll</th>
+			<th data-priority="1">Lambi Toalett</th>
+			<th data-priority="1">Serla Hushåll</th>
+		    <th data-priority="1">Serla Toalett</th>
+		    <th data-priority="1">Totalkostnad</th>
+	      </tr>
+	  </thead>
+	 <tfoot>
+	    <tr>
+		<th>Kund Nr.</th>
+		<th>E-post</th>
+		<th>Lambi Hushåll</th>
+		<th>Lambi Toalett</th>
+		<th>Serla Hushåll</th>
+		<th>Serla Toalett</th>
+		<th>Totalkostnad</th>
+		</tr>
+	  </tfoot>
+    <tbody>
+    </tbody>
+</table>
+</div>
+</div>
+
+<div class="panel ollepelle" style="width:100%">
+<!--  margin-top:10px; margin-left:5px; float: left;" -->
+	<div class="panel-heading"><h4><b>E-post till kund</b></h4></div>
+	<div class="panel-body" style="height:40%; text-align:center;" >
+		<p class="bg-info" id="msg"></p>
+		<form class="form-horizontal" role="form" id="emailForm" method="post">
+		<div class="form-group">
+	    	<label class="control-label col-sm-2" for="email">Mottagare:</label>
+	    	<div class="col-sm-10">
+	      		<input type="email" class="form-control" name="email" id="email" placeholder="E-postadress..." required="required">
+	    	</div>
+  		</div>
+  		<div class="form-group">
+			<label class="control-label col-sm-2" for="bcc">Dold mottagare:</label>
+			<div class="col-sm-10">
+			     <input type="email" class="form-control" name="bcc" id="bcc" placeholder="Dold e-postadress..." required="required">
+			</div>
+  		</div>
+ 		<div class="form-group">
+    		<label class="control-label col-sm-2" for="subject">Rubrik:</label>
+    		<div class="col-sm-10">
+      			<input type="text" class="form-control" name="subject" id="subject" placeholder="Rubrik..." required="required">
+    		</div>
+  		</div>
+        <!--
+  		<div class="form-group">
+		    		<label class="control-label col-sm-2" for="template">Mall:</label>
+		    		<div class="col-sm-10">
+		      			<textarea rows="2" class="form-control" name="template" id="templ" placeholder="Mall..."><textarea>
+		    		</div>
+  		</div>
+         -->
+ 		<div class="form-group">
+    		<label class="control-label col-sm-2" for="description">Innehåll:</label>
+    		<div class="col-sm-10">
+      			<textarea rows="30" class="form-control" name="description" id="contents" placeholder="Innehåll..."></textarea>
+    		</div>
+		</div>
+  		<div class="form-group">
+    		<div class="col-sm-offset-2 col-sm-7">
+     	 		<button id="send" class="btn btn-primary btn-lg" type="button">
+         		<span class="glyphicon glyphicon-envelope" ></span> Sänd
+      			</button>
+      			<button id="saveTempl" class="btn btn-primary btn-lg" type="button">
+				<span class="glyphicon glyphicon-save" ></span> Spara Mall
+      			</button>
+      		    <button id="resetTempl" class="btn btn-primary btn-lg" type="button">
+				<span class="glyphicon glyphicon-wrench" ></span> Återställ
+      			</button>
+      			 <button id="bulkSend" class="btn btn-primary btn-lg" type="button">
+				<span class="glyphicon glyphicon-wrench" ></span> Massutskick
+      			</button>
+      		</div>
+  		</div>  <!--last form-group -->
+        </form>
+	</div>  <!--  panel body -->
+</div>   <!-- panel-primary -->
+</body>
+</html>

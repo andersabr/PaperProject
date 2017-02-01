@@ -1,0 +1,47 @@
+@CHARSET "ISO-8859-1";
+.columnSelectorWrapper {
+  position: relative;
+  margin: 10px 0;
+}
+.columnSelector, .hidden {
+  display: none;
+}
+#.columnSelectorButton {
+  background: #99bfe6;
+  border: #888 1px solid;
+  color: #111;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  z-index:1;
+}
+#colSelect1:checked + label {
+  background: #5797d7;
+  border-color: #555;
+}
+#colSelect1:checked ~ #columnSelector {
+  display: block;
+}
+#.columnSelector {
+  position: absolute;
+  top: 30px;
+  padding: 10px;
+  background: #fff;
+  border: #99bfe6 1px solid;
+  border-radius: 5px;
+}
+.columnSelector label {
+  display: block;
+}
+.columnSelector label:nth-child(1) {
+  border-bottom: #99bfe6 solid 1px;
+  margin-bottom: 5px;
+}
+.columnSelector .disabled {
+  color: #ddd;
+}
+.ollepelle {
+  background-color: #99bfe6 !important; 
+}
