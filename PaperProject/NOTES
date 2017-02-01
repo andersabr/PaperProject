@@ -22,18 +22,13 @@ Issue: After "Uppdatera Beställning" when closing the popup. The page is not rel
 Page:  Beställningar, Uppdatera Beställning 
 Issue: The products shall have be lited in the order: Serla toa, Serla hh, Lambi Toa and Lambi hh 
 
-Page: Konfigurartion
+Page: Konfiguration
 Styling of submit buttons is wrong.
 
 Page: Beställningar
 Issue: Column sizes should be variable. E.g. number of items ordered should be smaller.
 
-Page: All
-Issue:  When clearing the browser history the DB connextion is lost.
 
-Page: Konfiguration
-Issue: Saving config makes E-mail bcc, subject and message undefined. 
-They shall not be touched!!  bcc shall be configured in config form (not in E-mail form)
 
 
 
@@ -62,32 +57,32 @@ Issues that are fixed
   Fixed by changíng the name in the ored most recently made ]
 
 
+[ Page: Konfiguration
+  Issue: Saving config makes E-mail bcc, subject and message undefined. 
+  They shall not be touched!!  bcc shall be configured in config form (not in E-mail form).
+  
+  Changed the logic that updates the configuration ]
+
 
 Functions:
 ----------
 - Backup of DB
-  Nothing has been done here. Probably copy files on remote DBs.
+  Nothing has been done here. Maybe copy some files on the remote DBs.
   
-- Hosting the pages and having CouchDB on the net
-  CouchDB 2.0 current running on Raspberry Pi / Rasbian
-  Looking for a site to host the pages --- Bredbansdbolaget?
-  Couch DB can run on Rasberry connected to wireless Router at home.
-  nodemailer can too.
+- Hosting the pages and having CouchDB and the nodemailer on the net
+  CouchDB 2.0 is currently running on a Raspberry Pi / Rasbian
+  Looking for a site to host the pages,  Bredbansdbolaget?
+  Couch DB runs fine on the Rasberry.
+  Perhaps add nodemailer can too..
    
 - Authentication
-  Will use authentication in CouchDB. Nothing done yet
-
-- Email
-  Fix automatic mail sending.
+  Nothing done yet. Will use authentication in CouchDB. 
   
-- javascript libs shall be stored locally  
+- Javascript libs shall be stored locally  
   
 - Running without connection
   Should be possible to read DB data from local PouchDB
-  
- -Possible to configure file names of db initial data (customers and orders).
-  Currently this is hardcoded in program.
-  
+   
 - Summing up the orders and display result dynamically on top of page "Beställningar"
  
 - Possible to configure the Sender of the E-mail (inside nodemailer).
@@ -103,30 +98,5 @@ Functions:
 
 
  
- Verktykstips
- ============	
- 	com:
- 	Fiddler
- 	
- 	test:
- 	Crome extension: postman
- 	
- 	
- 	API:
- 	ajax:
- 	dotnet:
- 	
-
- 	contract first - swaggy (protopyping)
- 	
- 	Tomas Billborn  -npm
- 	
- 	
-JUNK
-========= 	
- 	
- background-color: #9fbfdf !important; 
-#background-color:#efefef;
-#background-color: #428bce !important;
  	
  
