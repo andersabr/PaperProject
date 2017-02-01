@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Uppdatera Beställning</title>
+<link rel="stylesheet" href="ordersEditButtons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/css/theme.blue.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/jquery.tablesorter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.0/js/widgets/widget-editable.min.js"></script>
+<script src="//cdn.jsdelivr.net/pouchdb/latest/pouchdb.min.js"></script>
+<script src="pouchReadWrite10.js"></script>
+<script src="jsHelpFunctions2.js"></script>
+<script src="ordersEdit3.js"></script>
+</head>
+<body>
+<label>Visa historik:<input type="checkbox" id="isHistorySelected" onclick='handleClick(this);'></label>
+<!-- div id="txtAge" style="display:none">Age is something</div -->
+<script>
+
+function handleClick(cb) {
+  save();
+  //console.log("Clicked, new value = " + cb.checked);
+  location.reload();
+}
+
+
+</script>
+    <!-- buttons for input method -->
+	<!-- button class="auto">Toggle</button> <code>Editering &#228;ndrar: <span>false</span></code -->
+	<!-- button class="enter">Toggle</button> <code>Editering + RETURN &#228;ndrar: <span>true</span></code -->
+	<br>
+	<br>
+
+	<table id="nisse" class="tablesorter">
+	<thead>
+		<tr>
+		<th>Beställnings Nr</th>
+		<th>Kundnamn</th>
+		<th>Lambi Hushåll</th>
+		<th>Lambi Tolaett</th>
+		<th>Serla Hushåll</th>
+		<th>Serla Toalett</th>
+		<th>Totalkostnad</th>
+		<th>Beställningsdatum</th>
+		</tr>
+	</thead>
+	<tbody >
+</table>
+
+<div id="myDIV">
+</div>
+<div id="orderDIV">
+</div>
+</body>
+</html>
+
