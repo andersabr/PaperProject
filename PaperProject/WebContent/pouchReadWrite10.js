@@ -1051,25 +1051,26 @@ function updateOrderInPouchAndOrdersEdit(custid, TnObj) {
 		// here we need the timestamp from Couch to update TnObj 	
 		var client = new HttpClient();
 		// include something unique in URL to avoid browser cache issues
-		var unique = new Date().getTime();
-
+		var unique = new Date();
+		//.getTime();
+		
 		//client.get('http://admin:admin@127.0.0.1:5984/mydb/_design/showtimestamp/_show/timestamp?uid='+unique, function(response) {
-		client.get(couchdbURL+'mydb/_design/showtimestamp/_show/timestamp?uid='+unique, function(response) {
-			console.log(response);
-			myDate = new Date(parseFloat(response));
-			console.log(myDate);
-			TnObj["transactiondate"] = myDate.toISOString();
-			var n = findHighestNinOrder(doc);
-			// n = 0 corresponds to Tx which means that add T1
-			// THis means we add an order having T(n+1)
-			var m = parseFloat(n) + parseFloat(1);
-			key = "T"+m;
-			// add the order to the doc
-			doc[key]=TnObj;
-			console.log(doc);
-			// put doc back in db
-			return dbOrd.put(doc);
-		});
+		//client.get(couchdbURL+'mydb/_design/showtimestamp/_show/timestamp?uid='+unique, function(response) {
+		//console.log(response);
+		//myDate = new Date(parseFloat(response));
+        console.log(unique);
+		TnObj["transactiondate"] = unique.toISOString();
+		var n = findHighestNinOrder(doc);
+		// n = 0 corresponds to Tx which means that add T1
+		// THis means we add an order having T(n+1)
+		var m = parseFloat(n) + parseFloat(1);
+		key = "T"+m;
+		// add the order to the doc
+		doc[key]=TnObj;
+		console.log(doc);
+		// put doc back in db
+		return dbOrd.put(doc);
+		//});
 	})
 	.then(function (result){
 		// final get
