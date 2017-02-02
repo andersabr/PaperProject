@@ -20,7 +20,6 @@ var HttpClient = function() {
 function addCustomerToPouchAndCustEdit(custobj,orderobj) {
 
 	var custid = custobj["_id"];
-
 	//var remoteDbCust =  new PouchDB('http://admin:admin@localhost:5984/remcust');
 	var remoteDbCust =  PouchDB(couchdbURL +'remcust');
 	//var remoteDbOrders =  new PouchDB('http://admin:admin@localhost:5984/remorders');
@@ -290,7 +289,6 @@ function readCouchTimestamp() {
  */
 
 
-
 function readConfigurationFromDb(callback) {
 	/*
 	 * reads the config from DB using GET
@@ -331,6 +329,7 @@ function readConfigurationFromDb(callback) {
 function readCustomerDataFromDB(callback) {
 
 	console.log("---readCustomerDataFromDB 1---");
+	
 	var info = PouchDB.replicate(couchdbURL+'remcust','customers', {
 		// live: true,
 		retry: true
@@ -352,7 +351,8 @@ function readCustomerDataFromDB(callback) {
 			console.log(err);
 		});
 	}).on('error', function (err) {
-		console.log("handle error");
+		// at replication we get autentication error
+		console.log(err);
 	});
 }
 
@@ -882,9 +882,6 @@ function updateConfigInPouchAndConfigPage(updatedDoc) {
 }
 
 
-
-
-
 function updateCustomerInPouchAndCustEdit(updatedDoc) {
 
 	//----db = new PouchDB('customers');
@@ -919,13 +916,6 @@ function updateCustomerInPouchAndCustEdit(updatedDoc) {
 		return null;
 	});
 }
-
-
-
-
-
-
-
 
 
 function updateCustomerInPouchAndOrderToo(updatedDoc) {
@@ -1005,7 +995,6 @@ function updateCustomerInPouchAndOrderToo(updatedDoc) {
 }
 
 
-
 function updateEmailTemplateInDB(updateObj) {
 
 	var configid = "CONF0001";
@@ -1038,7 +1027,6 @@ function updateEmailTemplateInDB(updateObj) {
 		return null;
 	});
 }
-
 
 
 function updateOrderInPouchAndOrdersEdit(custid, TnObj) {
@@ -1098,7 +1086,6 @@ function updateOrderInPouchAndOrdersEdit(custid, TnObj) {
 		return null;
 	});
 }
-
 
 
 /*

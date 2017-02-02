@@ -170,9 +170,9 @@ IBK Sundsvall och Sundsvall City IBC";
 		//             retrieveDocsFromDBresult(resultCustFromPouch,tableFillInToo);
 		//                -- prepares the bulk docs of data for page
 		//                -- then calls
-		//                tableFillInToo(docsForWidget, bulkEmails);  
+		//                tableFillInToo(docsForWidget);  
 		//                    -- prepares the customer dependent email data (selects the customers accepting E-mail)
-		//                    -- the calls
+		//                    -- then calls
 		//                    readOrdersDataFromDbAndAddThem(custArr,tableFillInBulkEmails);
 		//                        -- bulk read the the orders
 		//                        -- then calls
