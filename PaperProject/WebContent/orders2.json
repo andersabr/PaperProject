@@ -16,7 +16,7 @@
 			"lambitoa": "4",
 			"serlahh": "0",
 			"serlatoa": "0",
-			"totalcost": 880,
+			"totalcost": "880",
 			"transactiondate": "2016-01-26T17:47:25.004Z"
 		}
 	},
@@ -37,7 +37,7 @@
 			"lambitoa": "4",
 			"serlahh": "0",
 			"serlatoa": "0",
-			"totalcost": 880,
+			"totalcost": "880",
 			"transactiondate": "2016-01-26T17:47:25.004Z"
 		}
 	},
@@ -79,7 +79,7 @@
 			"lambitoa": "4",
 			"serlahh": "0",
 			"serlatoa": "0",
-			"totalcost": 880,
+			"totalcost": "880",
 			"transactiondate": "2016-01-26T17:47:25.004Z"
 		}
 	},
@@ -100,7 +100,7 @@
 			"lambitoa": "0",
 			"serlahh": "0",
 			"serlatoa": "0",
-			"totalcost": 0,
+			"totalcost": "0",
 			"transactiondate": "2016-01-26T17:47:25.004Z"
 		}
 	},
@@ -121,7 +121,7 @@
 			"lambitoa": "0",
 			"serlahh": "0",
 			"serlatoa": "1",
-			"totalcost": 160,
+			"totalcost": "160",
 			"transactiondate": "2016-01-26T17:47:25.004Z"
 		}
 	},
@@ -142,7 +142,7 @@
 			"lambitoa": "2",
 			"serlahh": "0",
 			"serlatoa": "1",
-			"totalcost": 520,
+			"totalcost": "520",
 			"transactiondate": "2016-01-26T17:47:25.004Z"
 		}
 	},
@@ -163,7 +163,7 @@
 			"lambitoa": "2",
 			"serlahh": "0",
 			"serlatoa": "0",
-			"totalcost": 360,
+			"totalcost": "360",
 			"transactiondate": "2016-01-26T17:47:25.004Z"
 		}
 	},
