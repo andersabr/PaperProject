@@ -1,195 +1,194 @@
 [
-      {
-        "_id": "internal:FP0001",
-        "Tx" : {
-            "customername" : "Tomtetjänst AB",
-            "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "0",
-            "transactiondate" : "xxxx-xx-xx"
-          },       
-       "T1" : {
-            "customername" : "Tomtetjänst AB",
-            "lambihh" : "1",
-            "lambitoa" : "4",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : 880,
-            "transactiondate" : "2016-01-26T17:47:25.004Z"
-          }
-       },
-       { 
-         "_id": "internal:FP0002",
-          "Tx" : {
-                 "customername" : "Ta-i-trät AB",
-            "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "0",
-            "transactiondate" : "xxxx-xx-xx"
-          },
-          "T1" : {
-            "customername" : "Ta-i-trät AB",
-              "lambihh" : "1",
-            "lambitoa" : "4",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : 880,
-            "transactiondate" : "2016-01-26T17:47:25.004Z"
-          }
-        },
-        {
-          "_id": "internal:FP0003",
-          "Tx" : {
-            "customername" : "Regina Kallesson",
-             "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "0",
-            "transactiondate" : "xxxx-xx-xx"
-          },
-          "T1" : {
-            "customername" : "Regina Kallesson",
-             "lambihh" : "1",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "160",
-            "transactiondate" : "2016-01-26T17:47:25.004Z"
-          }
-        },
-        {
-          "_id": "internal:FP0004",
-           "Tx" : {
-            "customername" : "Transpiration AB",
-             "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "0",
-            "transactiondate" : "xxxx-xx-xx"
-          },
-          "T1" : {
-            "customername" : "Transpiration AB",
-            "lambihh" : "1",
-            "lambitoa" : "4",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : 880,
-            "transactiondate" : "2016-01-26T17:47:25.004Z"
-          }
-        },
-        {
-           "_id":  "internal:FP0005",
-           "Tx" : {
-            "customername" : "Maja Lundträd",
-            "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "0",
-            "transactiondate" : "xxxx-xx-xx"
-          },
-          "T1" : {
-            "customername" : "Maja Lundträd",
-            "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : 0,
-            "transactiondate" : "2016-01-26T17:47:25.004Z"
-          }
-        },
-        {
-          "_id": "internal:FP0006",
-          "Tx" : {
-            "customername" : "Englunds Färghandel",
-            "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "0",
-            "transactiondate" : "xxxx-xx-xx"
-          },
-          "T1" : {
-            "customername" : "Englunds Färghandel",
-            "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "1",
-            "totalcost" : 160,
-            "transactiondate" : "2016-01-26T17:47:25.004Z"
-          }
-        },
-        {
-          "_id": "internal:FP0007",
-          "Tx" : {
-            "customername" : "Gustavus Söderalp",
-            "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "0",
-            "transactiondate" : "xxxx-xx-xx"
-          },
-          "T1" : {
-            "customername" : "Gustavus Söderalp",
-            "lambihh" : "0",
-            "lambitoa" : "2",
-            "serlahh" : "0",
-            "serlatoa" : "1",
-            "totalcost" : 520,
-            "transactiondate" : "2016-01-26T17:47:25.004Z"
-          }
-        },
-        {
-         "_id": "internal:FP0008", 
-          "Tx" : {
-            "customername" : "Merry Christmas",
-              "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "0",
-            "transactiondate" : "xxxx-xx-xx"
-            
-          },
-          "T1" : {
-            "customername" : "Merry Christmas",
-            "lambihh" : "0",
-            "lambitoa" : "2",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : 360,
-            "transactiondate" : "2016-01-26T17:47:25.004Z"
-          }
-        },
-        {
-          "_id": "internal:FP0009",
-          "Tx" : {
-            "customername" : "Donald Duck",
-               "lambihh" : "0",
-            "lambitoa" : "0",
-            "serlahh" : "0",
-            "serlatoa" : "0",
-            "totalcost" : "0",
-            "transactiondate" : "xxxx-xx-xx"
-          },
-          "T1" : {
-            "customername" : "Donald Duck",
-             "lambihh" : "1",
-            "lambitoa" : "2",
-            "serlahh" : "3",
-            "serlatoa" : "4",
-            "totalcost" : "1610",
-            "transactiondate" : "2016-01-26T17:47:25.004Z"
-          }
-      }
- ]
+	{
+		"_id": "internal:FP0001",
+		"Tx": {
+			"customername": "Ason",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "0",
+			"transactiondate": "xxxx-xx-xx"
+		},
+		"T1": {
+			"customername": "Ason",
+			"lambihh": "1",
+			"lambitoa": "4",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": 880,
+			"transactiondate": "2016-01-26T17:47:25.004Z"
+		}
+	},
+	{
+		"_id": "internal:FP0002",
+		"Tx": {
+			"customername": "Bson",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "0",
+			"transactiondate": "xxxx-xx-xx"
+		},
+		"T1": {
+			"customername": "Bson",
+			"lambihh": "1",
+			"lambitoa": "4",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": 880,
+			"transactiondate": "2016-01-26T17:47:25.004Z"
+		}
+	},
+	{
+		"_id": "internal:FP0003",
+		"Tx": {
+			"customername": "Cson",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "0",
+			"transactiondate": "xxxx-xx-xx"
+		},
+		"T1": {
+			"customername": "Cson",
+			"lambihh": "1",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "160",
+			"transactiondate": "2016-01-26T17:47:25.004Z"
+		}
+	},
+	{
+		"_id": "internal:FP0004",
+		"Tx": {
+			"customername": "Dson",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "0",
+			"transactiondate": "xxxx-xx-xx"
+		},
+		"T1": {
+			"customername": "Dson",
+			"lambihh": "1",
+			"lambitoa": "4",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": 880,
+			"transactiondate": "2016-01-26T17:47:25.004Z"
+		}
+	},
+	{
+		"_id": "internal:FP0005",
+		"Tx": {
+			"customername": "Eson",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "0",
+			"transactiondate": "xxxx-xx-xx"
+		},
+		"T1": {
+			"customername": "Eson",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": 0,
+			"transactiondate": "2016-01-26T17:47:25.004Z"
+		}
+	},
+	{
+		"_id": "internal:FP0006",
+		"Tx": {
+			"customername": "Fson",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "0",
+			"transactiondate": "xxxx-xx-xx"
+		},
+		"T1": {
+			"customername": "Fson",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "1",
+			"totalcost": 160,
+			"transactiondate": "2016-01-26T17:47:25.004Z"
+		}
+	},
+	{
+		"_id": "internal:FP0007",
+		"Tx": {
+			"customername": "Gson",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "0",
+			"transactiondate": "xxxx-xx-xx"
+		},
+		"T1": {
+			"customername": "Gson",
+			"lambihh": "0",
+			"lambitoa": "2",
+			"serlahh": "0",
+			"serlatoa": "1",
+			"totalcost": 520,
+			"transactiondate": "2016-01-26T17:47:25.004Z"
+		}
+	},
+	{
+		"_id": "internal:FP0008",
+		"Tx": {
+			"customername": "Hson",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "0",
+			"transactiondate": "xxxx-xx-xx"
+		},
+		"T1": {
+			"customername": "Hson",
+			"lambihh": "0",
+			"lambitoa": "2",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": 360,
+			"transactiondate": "2016-01-26T17:47:25.004Z"
+		}
+	},
+	{
+		"_id": "internal:FP0009",
+		"Tx": {
+			"customername": "Ison",
+			"lambihh": "0",
+			"lambitoa": "0",
+			"serlahh": "0",
+			"serlatoa": "0",
+			"totalcost": "0",
+			"transactiondate": "xxxx-xx-xx"
+		},
+		"T1": {
+			"customername": "Ison",
+			"lambihh": "1",
+			"lambitoa": "2",
+			"serlahh": "3",
+			"serlatoa": "4",
+			"totalcost": "1610",
+			"transactiondate": "2016-01-26T17:47:25.004Z"
+		}
+	}
+]
  
         
       
