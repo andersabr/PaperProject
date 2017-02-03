@@ -13,16 +13,6 @@
   right: 0;
   bottom: 0;
 }
-.resetPage {
-  background: #99bfe6;
-  border: #888 1px solid;
-  color: #111;
-  border-radius: 5px;
-  padding: 5px;
-  position: relative;
-  right: 0;
-  bottom: 0;
-}
 .orderSearchButton {
   background: #99bfe6;
   border: #888 1px solid;
@@ -33,7 +23,7 @@
   right: 0;
   bottom: 0;
 }
-.emailCustomerButton {
+.resetCustomersButton {
   background: #99bfe6;
   border: #888 1px solid;
   color: #111;
@@ -42,16 +32,6 @@
   position: relative;
   right: 0;
   bottom: 0;
-}
-.logoutButton{
-   background: #99bfe6;
-   border: #888 1px solid;
-   color: #111;
-   border-radius: 5px;
-   padding: 5px;
-   position: relative;
-   right: 0;
-   bottom: 0;
 }
 .resetOrdersButton {
    background: #99bfe6;
@@ -63,4 +43,23 @@
    right: 0;
    bottom: 0;
 }
-
+.logoutButton{
+   background: #99bfe6;
+   border: #888 1px solid;
+   color: #111;
+   border-radius: 5px;
+   padding: 5px;
+   position: relative;
+   right: 0;
+   bottom: 0;
+}
+.submitbutton {
+  background: #99bfe6;
+  border: #888 1px solid;
+  color: #111;
+  border-radius: 5px;
+  padding: 5px;
+  position: relative;
+  right: 0;
+  bottom: 0;
+}

@@ -6,8 +6,7 @@ var config;
 
 function resetCustomers() {
 	/*
-	 * ONLY INTEDED FOR DESIGN PURPOSES
-	 * button function for "resetPage" button 
+	 * ONLY INTEDED FOR DESIGN PURPOSES 
 	 * clears Pouche, clears Couch and the table,
 	 * Therafter reads the data from file and stores in all the DBs
 	 * Finally loads the start table
@@ -38,8 +37,8 @@ function resetCustomers() {
 
 function resetOrders() {
 	/*
-	 * ONLY INTEDED FOR DESIGN PURPOSES, does similar thing  as "reset" for customers
-	 * button function for "resetPage" button, clears Pouche, clears Couch and the table,
+	 * ONLY INTEDED FOR DESIGN PURPOSES
+     * clears Pouche, clears Couch and the table,
 	 * Therafter reads the data from file and stores in all the DBs
 	 * Finally loads the start table
 	 */
@@ -126,10 +125,11 @@ function createConfigPage() {
 function createDbIpAddressForm() {
 
 	var cPAGE = document.getElementById("dbIpDIV");
+	
 	var cFORM = document.createElement('form');
 	cFORM.setAttribute("name", "dbipform"); 
 	cFORM.setAttribute("action", "#"); 
-	cFORM.setAttribute("onsubmit", "saveDbIp(); return false");
+	//cFORM.setAttribute("onsubmit", "saveDbIp(); return false");
 
 	var cINPUT = document.createElement('input');
 	cINPUT.setAttribute("type", "text");
@@ -153,15 +153,21 @@ function createDbIpAddressForm() {
 	cFORM.appendChild(cINPUT);
 	cFORM.appendChild(document.createElement('br'));
 
-	// this shall be made a button instead
+	// this shall be a button 
 	cINPUT = document.createElement('input');
-	cINPUT.setAttribute("type","submit");
-	cINPUT.setAttribute("value","Spara IP-adress");	
+	cINPUT.setAttribute("type","button");
+	cINPUT.setAttribute("value","Spara IP-adress");
+	cINPUT.setAttribute("onclick", "saveDbIp()");
+	cINPUT.setAttribute("class", "submitbutton");
+	
 	cFORM.appendChild(document.createElement('br'));
 	cFORM.appendChild(cINPUT);
 
+	// form into page
 	cPAGE.appendChild(cFORM); 
 
+	
+	
 }
 
 function saveDbIp() {
@@ -201,7 +207,7 @@ function createConfigForm(config) {
 	var cFORM = document.createElement('form');
 	cFORM.setAttribute("name", "example"); 
 	cFORM.setAttribute("action", "#"); 
-	cFORM.setAttribute("onsubmit", "checkit(); return false"); 
+	//cFORM.setAttribute("onsubmit", "checkit(); return false"); 
 
 //	<table class="form">
 	var cTABLE = document.createElement('table');
@@ -299,17 +305,16 @@ function createConfigForm(config) {
 	cTR = document.createElement('tr');
 	cTD = document.createElement('td');
 	cTD.setAttribute("colspan","2");
+	
 	cINPUT = document.createElement('input');
-	cINPUT.setAttribute("type","submit");
-	cINPUT.setAttribute("value","Spara Konfiguration");	
+	cINPUT.setAttribute("type","button");
+	cINPUT.setAttribute("value","Spara Konfiguration");
+	cINPUT.setAttribute("onclick", "checkit()");
+	cINPUT.setAttribute("class", "submitbutton");
 	cTD.appendChild(document.createElement('br'));
 	cTD.appendChild(cINPUT);
-
-	//cINPUT = document.createElement('input');
-	//cINPUT.setAttribute("type", "reset");
-	//cTD.appendChild(cINPUT);
 	cTR.appendChild(cTD); 
-
+	
 	cTABLE.appendChild(cTR);
 
 
@@ -318,18 +323,11 @@ function createConfigForm(config) {
 
 	cTR = document.createElement('tr');
 	cTD = document.createElement('td');
-	cTD.setAttribute("colspan","2");
-
-	//var cTEXTAREA = document.createElement('textarea');
-	//cTEXTAREA.setAttribute("cols", "30");
-	//cTEXTAREA.setAttribute("rows", "7");
-	//cTEXTAREA.setAttribute("name", "output");
-	//cTEXTAREA.appendChild(document.createTextNode("When you hit 'Submit' the user input will be written to this textarea"));
-	//cTD.appendChild(cTEXTAREA);
-	
+	cTD.setAttribute("colspan","2");	
 	cTR.appendChild(cTD); 
 	
 	cTABLE.appendChild(cTR);
+	
 	cFORM.appendChild(cTABLE);
 	cPAGE.appendChild(cFORM);
 	
@@ -348,7 +346,7 @@ function orderSearch() {
 	  location.assign("./ordersOverview.html");
 }
 
-//hopefully it does not get stuck here :-)
+
 
 
 
