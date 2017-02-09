@@ -1,5 +1,5 @@
 
-var couchdbURL = 'http://admin:admin@'+localStorage.dbipaddress+':5984/';
+var couchdbURL = 'http://'+localStorage.dbipaddress+':5984/';
 var config;
 
 
@@ -11,70 +11,80 @@ function resetCustomers() {
 	 * Therafter reads the data from file and stores in all the DBs
 	 * Finally loads the start table
 	 */
-
-	var db = new PouchDB('customers');
-	//var remoteDb = new PouchDB('http://admin:admin@localhost:5984/remcust');
 	var remoteDb = new PouchDB(couchdbURL+'remcust');
-	var x;
-
-    if (confirm("ÄR DU 100% SÄKER? DATABASEN MED ALLA KUNDER KOMMER ATT RADERAS !!") == true) {
-		db.destroy().then(function (response) {
-			console.log("PouchDB cleared");
-			remoteDb.destroy().then(function (response) { 
-				console.log("CouchDB cleared");
-				// clears the table 
-				$('#nisse tbody > tr').remove();
-				// read data from file, store in Pouch and reload page
-				readCustomerDataFromFile(null);
-			});
-		}).catch(function (err) {
-			console.log(err);
-		});
-	} else {
-		x = "You pressed Cancel!";
-	}
+    remoteDb.getSession()
+	.then(function(response) {
+		if (!response.userCtx.name) {
+			// not logged in
+			location.assign('loginPage.html');	
+		} else if (response.userCtx.name) {
+			console.log(response['userCtx']);
+			var db = new PouchDB('customers');
+			var remoteDb = new PouchDB(couchdbURL+'remcust');
+			var x;
+			
+			if (confirm("ÄR DU 100% SÄKER? DATABASEN MED ALLA KUNDER KOMMER ATT RADERAS !!") == true) {
+				db.destroy().then(function (response) {
+					console.log("PouchDB cleared");
+					remoteDb.destroy().then(function (response) { 
+						console.log("CouchDB cleared");
+						// clears the table 
+						$('#nisse tbody > tr').remove();
+						// read data from file, store in Pouch and reload page
+						readCustomerDataFromFile(null);
+					});
+				}).catch(function (err) {
+					console.log(err);
+				});
+			} else {
+				x = "You pressed Cancel!";
+			}
+		}
+	}) 
 }
 
 function resetOrders() {
 	/*
 	 * ONLY INTEDED FOR DESIGN PURPOSES
-     * clears Pouche, clears Couch and the table,
+	 * clears Pouche, clears Couch and the table,
 	 * Therafter reads the data from file and stores in all the DBs
 	 * Finally loads the start table
 	 */
 
-	var db = new PouchDB('orders');
-	//var remoteDb = new PouchDB('http://admin:admin@localhost:5984/remorders');
 	var remoteDb = new PouchDB(couchdbURL+'remorders');
-	var x;
+	remoteDb.getSession()
+	.then(function(response) {
+		if (!response.userCtx.name) {
+			// not logged in
+			location.assign('loginPage.html');	
+		} else if (response.userCtx.name) {
+			console.log(response['userCtx']);
+			var db = new PouchDB('orders');
+			var remoteDb = new PouchDB(couchdbURL+'remorders');
+			var x;
 
-	if (confirm("ÄR DU 100% SÄKER? DATABASEN MED ALLA BESTÄLLNINGAR KOMMER ATT RADERAS !!") == true) {
+			if (confirm("ÄR DU 100% SÄKER? DATABASEN MED ALLA BESTÄLLNINGAR KOMMER ATT RADERAS !!") == true) {
 
-		db.destroy()
-		.then(function (response) {
-			console.log("PouchDB cleared");
-			remoteDb.destroy().then(function (response) { 
-				console.log("CouchDB cleared");
-				// clears the table 
-				$('#nisse tbody > tr').remove();
-				// read data from file, store in Pouch and reload page
-				readOrdersDataFromFile(null);
-			});
-		})
-		.then(function() {
-			console.log("--create the default configuration...--");
-	
-		})
-		.catch(function (err) {
-			console.log(err);
-		});
-	} 
-	else {
-		x = "Du valde att avbryta.";
-	}
+				db.destroy()
+				.then(function (response) {
+					console.log("PouchDB cleared");
+					remoteDb.destroy().then(function (response) { 
+						console.log("CouchDB cleared");
+						// clears the table 
+						$('#nisse tbody > tr').remove();
+						// read data from file, store in Pouch and reload page
+						readOrdersDataFromFile(null);
+					});
+				})
+				.catch(function (err) {
+					console.log(err);
+				});
+			} else {
+				x = "Du valde att avbryta.";
+			}
+		}
+	})
 }
-
-
 
 // This is the check script
 

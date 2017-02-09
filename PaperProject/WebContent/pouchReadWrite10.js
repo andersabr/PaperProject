@@ -1,5 +1,4 @@
-
-var couchdbURL = 'http://admin:admin@'+localStorage.dbipaddress+':5984/';
+var couchdbURL = 'http://'+localStorage.dbipaddress+':5984/';
 var db = new PouchDB('customers');
 var dbConfig = new PouchDB('config');
 var dbOrd = new PouchDB('orders');
@@ -20,9 +19,7 @@ var HttpClient = function() {
 function addCustomerToPouchAndCustEdit(custobj,orderobj) {
 
 	var custid = custobj["_id"];
-	//var remoteDbCust =  new PouchDB('http://admin:admin@localhost:5984/remcust');
 	var remoteDbCust =  PouchDB(couchdbURL +'remcust');
-	//var remoteDbOrders =  new PouchDB('http://admin:admin@localhost:5984/remorders');
 	var remoteDbOrders = new PouchDB(couchdbURL+'remorders');
 	//var dbCust = new PouchDB('customers');
 	//var dbOrders = new PouchDB('orders');
@@ -135,9 +132,7 @@ function findCustomerInPouchAndShowPage(custid, remove) {
 		// removing customer
 		console.log("removing customer having custid that was just added");
 		//var dbOrd = new PouchDB('orders');
-		//var remoteDbCust =  new PouchDB('http://admin:admin@localhost:5984/remcust');
 		var remoteDbCust =  PouchDB(couchdbURL+'remcust');
-		//var remoteDbOrders =  new PouchDB('http://admin:admin@localhost:5984/remorders');
 		var remoteDbOrders =  PouchDB(couchdbURL+'remorders');
 
 		db.get(custid)
@@ -599,7 +594,6 @@ function storeBulkInPouchAndRead(jsonData,callback) {
 	// if jsonData != null, creates DB with jsonData
 	// else reads the DB
 	var db = new PouchDB('customers');
-	//var remoteDb = new PouchDB('http://admin:admin@localhost:5984/remcust');
 	var remoteDb =  PouchDB(couchdbURL+'remcust');
 
 	if(jsonData != null) {
@@ -641,7 +635,6 @@ function storeBulkInPouchAndReadOrders(jsonData,callback) {
 	console.log("storeBulkInPouchAndReadOrders");
 
 	var dbOrd = new PouchDB('orders');
-	//var remoteDb = new PouchDB('http://admin:admin@localhost:5984/remorders');
 	var remoteDb =  PouchDB(couchdbURL+'remorders');
 
 	if(jsonData != null) {
@@ -1038,9 +1031,7 @@ function updateOrderInPouchAndOrdersEdit(custid, TnObj) {
 	//  - add the rev to the updated doc and
 	// - then store it
 
-	//var remoteDbCust =  new PouchDB('http://admin:admin@localhost:5984/remcust');
 	var remoteDbCust =  PouchDB(couchdbURL+'remcust');
-	//var remoteDbOrders =  new PouchDB('http://admin:admin@localhost:5984/remorders');
 	var remoteDbOrders =  PouchDB(couchdbURL+'remorders');
 	console.log(TnObj);
 	var ordid = "internal:"+custid;

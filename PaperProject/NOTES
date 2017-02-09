@@ -1,15 +1,16 @@
 
 Notes
 =====
+
 Pages:
 ------
 Beställningar
 Uppdatera Beställning 
-Kunder
+Kundregister
 Uppdatera Kundinfo
 Konfiguration
-E-mail
-
+E-post till kund
+Login
 
 
 Issues:
@@ -22,18 +23,13 @@ Issue: After "Uppdatera Beställning" when closing the popup. The page is not rel
 Page:  Beställningar, Uppdatera Beställning 
 Issue: The products shall have be lited in the order: Serla toa, Serla hh, Lambi Toa and Lambi hh 
 
-Page: Konfiguration
-Styling of submit buttons is wrong.
-
-Page: Beställningar
-Issue: Column sizes should be variable. E.g. number of items ordered should be smaller.
 
 
 
 
 
-Issues that are fixed
------------------------
+Issues that have been fixed:
+----------------------------
 
 [ Page: Uppdatera Beställning (Kundregistret)
   Issue: After deleting the browser cache, the page does not come up when coming from page Kundregistret ,
@@ -63,20 +59,22 @@ Issues that are fixed
   
   Changed the logic that updates the configuration ]
 
+[ Page: Konfiguration
+  Issue: Styling of submit buttons is wrong.
+  Fixed  ]
+
 
 Functions:
 ----------
 - Backup of DB
   Nothing has been done here. Maybe copy some files on the remote DBs.
   
-- Hosting the pages and having CouchDB and the nodemailer on the net
+- Having CouchDB and the nodemailer on the net
   CouchDB 2.0 is currently running on a Raspberry Pi / Rasbian
-  Looking for a site to host the pages,  Bredbansdbolaget?
-  Couch DB runs fine on the Rasberry.
-  Perhaps add nodemailer can too..
+  nodemailer is running locally in Windows 7
    
 - Authentication
-  Nothing done yet. Will use authentication in CouchDB. 
+  Now using authentication in CouchDB for admin access when deleting databases. 
   
 - Javascript libs shall be stored locally  
   
@@ -85,9 +83,8 @@ Functions:
    
 - Summing up the orders and display result dynamically on top of page "Beställningar"
  
-- Possible to configure the Sender of the E-mail (inside nodemailer).
-
-- Possible to configure mailer URL in config DB, currently it is hardcoded to 127.0.0.1.  
+- Possible to configure mailer URL in config DB, currently it is hardcoded to 127.0.0.1.
+  
 
 
  

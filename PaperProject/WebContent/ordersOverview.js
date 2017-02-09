@@ -1,5 +1,4 @@
-//var couchdbURL = 'http://admin:admin@192.168.2.180:5984/';
-var couchdbURL = 'http://admin:admin@'+localStorage.dbipaddress+':5984/';
+var couchdbURL = 'http://'+localStorage.dbipaddress+':5984/';
 
 $(function() {
 	var $table = $('table').tablesorter({
@@ -165,42 +164,6 @@ myDataRef.orderByKey().equalTo('customers').on("child_added", function (snapshot
  *  Button functions 
  *
  */
-
-/*
-function resetOrders() {
-	 *
-	 * ONLY INTEDED FOR DESIGN PURPOSES, does similar thing  as "reset" for customers
-	 * button function for "resetPage" button, clears Pouche, clears Couch and the table,
-	 * Therafter reads the data from file and stores in all the DBs
-	 * Finally loads the start table
-	 *
-
-	var db = new PouchDB('orders');
-	//var remoteDb = new PouchDB('http://admin:admin@localhost:5984/remorders');
-	var remoteDb = new PouchDB(couchdbURL+'remorders');
-	var x;
-
-	if (confirm("ARE YOU SURE? WILL RESET THE DB!!") == true) {
-
-		db.destroy().then(function (response) {
-			console.log("PouchDB cleared");
-			remoteDb.destroy().then(function (response) { 
-				console.log("CouchDB cleared");
-				// clears the table 
-				$('#nisse tbody > tr').remove();
-				// read data from file, store in Pouch and reload page
-				readOrdersDataFromFile(null);
-			});
-		}).catch(function (err) {
-			console.log(err);
-		});
-	} 
-	else {
-		x = "You pressed Cancel!";
-	}
-}
-
-*/
 
 function listAllId() {
  location.assign("./custSearch10.html");
