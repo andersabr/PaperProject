@@ -9,7 +9,6 @@ var initObj = {};
 var customerDataObj;
 
 
-
 var valueHasChanged = function (cellIndex, newContent) {
 	/*
 	 * updpdates the list in the  paragraph showing what is to be submitted to the DB

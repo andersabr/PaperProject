@@ -87,43 +87,55 @@ function resetOrders() {
 	})
 }
 
-// This is the check script
 
-function checkit()
+// This is the check script
+function submitToDb()
 {
 	// In textstring I gather the data that are finally written to the textarea.
-    console.log("----ckeckit----");
-	var textstring = '';
-
-	// First of all, have all the text boxes been filled in?
-
-	for (i=0;i<4;i++) {
-		var box = document.forms['example'].elements[i];
-		if (!box.value) {
-			alert('You haven\'t filled in ' + box.name + '!');
-			box.focus()
-			return;
+	console.log("----ckeckit----");
+	var remoteDb = new PouchDB(couchdbURL+'remcust');
+	remoteDb.getSession()
+	.then(function (response){
+		if (!response.userCtx.name) {
+			// not logged in
+			// fix this...
+			location.assign('loginPage.html?page=configPage3.html');
+		} else if (response.userCtx.name) {
+			console.log(response['userCtx']);
 		}
-	}
+	})
+	.then(function () {
 
-	// read the element values 
-	var lambihh = document.forms['example'].elements[3].value;
-	var lambitoa = document.forms['example'].elements[2].value;
-	var serlahh = document.forms['example'].elements[1].value;
-	var serlatoa = document.forms['example'].elements[0].value;
-	
-	// update the object
-	var obj = {};
-	obj["_id"] = "CONF0001";
-	obj["serlatoa_price"] = serlatoa;
-	obj["serlahh_price"] = serlahh;
-	obj["lambitoa_price"] = lambitoa;
-	obj["lambihh_price"] = lambihh;
-	
-	console.log(lambihh + " " + lambitoa + " " + serlatoa + " " +serlahh);
-		
-	updateConfigInPouchAndConfigPage(obj);
+		// First of all, have all the text boxes been filled in?
+
+		for (i=0;i<4;i++) {
+			var box = document.forms['example'].elements[i];
+			if (!box.value) {
+				alert('You haven\'t filled in ' + box.name + '!');
+				box.focus()
+				return;
+			}
+		}
+
+		// read the element values 
+		var lambihh = document.forms['example'].elements[3].value;
+		var lambitoa = document.forms['example'].elements[2].value;
+		var serlahh = document.forms['example'].elements[1].value;
+		var serlatoa = document.forms['example'].elements[0].value;
+
+		// update the object
+		var obj = {};
+		obj["_id"] = "CONF0001";
+		obj["serlatoa_price"] = serlatoa;
+		obj["serlahh_price"] = serlahh;
+		obj["lambitoa_price"] = lambitoa;
+		obj["lambihh_price"] = lambihh;
+
+		console.log(lambihh + " " + lambitoa + " " + serlatoa + " " +serlahh);
+		updateConfigInPouchAndConfigPage(obj);
+	});
 }
+
 
 function createConfigPage() {
 	
@@ -320,7 +332,7 @@ function createConfigForm(config) {
 	cINPUT = document.createElement('input');
 	cINPUT.setAttribute("type","button");
 	cINPUT.setAttribute("value","Spara Konfiguration");
-	cINPUT.setAttribute("onclick", "checkit()");
+	cINPUT.setAttribute("onclick", "submitToDb()");
 	cINPUT.setAttribute("class", "submitbutton");
 	cTD.appendChild(document.createElement('br'));
 	cTD.appendChild(cINPUT);
