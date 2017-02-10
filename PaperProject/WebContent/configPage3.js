@@ -98,7 +98,6 @@ function submitToDb()
 	.then(function (response){
 		if (!response.userCtx.name) {
 			// not logged in
-			// fix this...
 			location.assign('loginPage.html?page=configPage3.html');
 		} else if (response.userCtx.name) {
 			console.log(response['userCtx']);
