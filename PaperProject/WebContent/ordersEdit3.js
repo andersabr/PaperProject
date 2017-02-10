@@ -17,7 +17,7 @@ function listGlobals() {
 function commitToDb() {
 	
 	/* get data that was submitted (has been validated in form), 
-	 * this data is in last row in table 
+	 * this data is in last row in table in the top of the page 
 	 */
 	var tableRef = document.getElementById('nisse').getElementsByTagName('tbody')[0];
 	rowRef = tableRef.rows[(tableRef.rows.length-1)];
@@ -37,20 +37,7 @@ function commitToDb() {
 	
 	updateOrderInPouchAndOrdersEdit(customerid, obj5);
 	
-	/* firebase stuff..
-	if((orderskey.substring(0,6)) != "intern") {
-		myDataRef = new Firebase("https://popping-fire-3239.firebaseio.com/transactions");
-	}
-	else {
-		myDataRef = new Firebase("https://popping-fire-3239.firebaseio.com/foreningsrullen2/ibksundsvall2/transactions");
-	}
-	var transactionRef = myDataRef.child(orderskey);
-	transactionRef.update(obj6,onComplete3);
-	location.reload();
-	*/
-	
 };
-
 
 
 /* cancel button action
@@ -64,10 +51,9 @@ function cancelUpdate() {
 };
 
 
-
 function validation(){
 	/*  
-	 *validates form input
+	 * validates form input
      * check that all fields are numbers 
      */
     var lambihh = document.getElementById("id_lambihh").value;
@@ -89,7 +75,8 @@ function validation(){
 }
 
 
-/* global for storing old/default div "myDiv" (page without DB update section)
+/* 
+ * global for storing old/default div "myDiv" (page without DB update section)
 */
 var oldpara;
 
@@ -97,7 +84,7 @@ var oldpara;
 function buildCommitOrder(config) {
 	console.log("--buildCommitOrder----");
 	console.log(config);
-	
+
 	var lambihh = document.getElementById("id_lambihh").value;
 	var lambitoa = document.getElementById("id_lambitoa").value;
 	var serlahh = document.getElementById("id_serlahh").value;
@@ -107,52 +94,51 @@ function buildCommitOrder(config) {
 		return;
 	}
 
-    /* display in list of changes in div on window
-     */
-    var para = document.createElement("P");
-    para.className = "dbupdate";
+	/* display in list of changes in div on window
+	 */
+	var para = document.createElement("P");
+	para.className = "dbupdate";
 
-    var commitB = document.createElement("input");
+	var commitB = document.createElement("input");
 	commitB.type = "button";
 	commitB.value = "Bekräfta";
 	commitB.onclick =  commitToDb;  // the function called when pressing commit button
-    commitB.className = "updatebutton1";
+	commitB.className = "updatebutton1";
 
-    var cancelB = document.createElement("input");
-    cancelB.type = "button";
+	var cancelB = document.createElement("input");
+	cancelB.type = "button";
 	cancelB.value = "Annulera";
 	cancelB.onclick = cancelUpdate;
-    cancelB.className = "updatebutton2";
+	cancelB.className = "updatebutton2";
 
 	para.appendChild(commitB);
-    para.appendChild(cancelB);
-    para.appendChild(document.createElement("br"));
+	para.appendChild(cancelB);
+	para.appendChild(document.createElement("br"));
 	para.appendChild(document.createElement("br"));
 	para.appendChild(document.createTextNode("Uppdatering av databas för "+customer +" ("+customerid+")"));
-    para.appendChild(document.createElement("br"));
-    //alert("lambihh= "+lambihh + " lambitoa= "+lambitoa + " serlahh= "+serlahh+ " serlatoa= "+serlatoa);
-    para.appendChild(document.createElement("br"));
-    para.appendChild(document.createTextNode("Beställnings Nr: "+"internal:"+customerid+":T"+ (orderlength)));
-    para.appendChild(document.createElement("br"));
-    para.appendChild(document.createTextNode("Lambi Hushåll: "+lambihh));
-    para.appendChild(document.createElement("br"));
-    para.appendChild(document.createTextNode("Lambi Toalett: "+lambitoa));
-    para.appendChild(document.createElement("br"));
-    para.appendChild(document.createTextNode("Serla Hushåll:"+serlahh));
 	para.appendChild(document.createElement("br"));
-    para.appendChild(document.createTextNode("Serla Toalett:"+serlatoa));
+	//alert("lambihh= "+lambihh + " lambitoa= "+lambitoa + " serlahh= "+serlahh+ " serlatoa= "+serlatoa);
+	para.appendChild(document.createElement("br"));
+	para.appendChild(document.createTextNode("Beställnings Nr: "+"internal:"+customerid+":T"+ (orderlength)));
+	para.appendChild(document.createElement("br"));
+	para.appendChild(document.createTextNode("Lambi Hushåll: "+lambihh));
+	para.appendChild(document.createElement("br"));
+	para.appendChild(document.createTextNode("Lambi Toalett: "+lambitoa));
+	para.appendChild(document.createElement("br"));
+	para.appendChild(document.createTextNode("Serla Hushåll:"+serlahh));
+	para.appendChild(document.createElement("br"));
+	para.appendChild(document.createTextNode("Serla Toalett:"+serlatoa));
 	para.appendChild(document.createElement("br"));
 
 	// calculate totalcost from products info ----------------------------------------------------
 	// make a config DB where we have this and much more...
 
 	//var totalcost = 1*lambihh*lambihh_price + 1*lambitoa*lambitoa_price + 1*serlahh*serlahh_price + 1*serlatoa*serlatoa_price;
-	
-   var totalcost = 1 * lambihh*config.lambihh_price + 1 * lambitoa*config.lambitoa_price + 1 * serlahh*config.serlahh_price + 1 * serlatoa*config.serlatoa_price;
-	
+
+	var totalcost = 1 * lambihh*config.lambihh_price + 1 * lambitoa*config.lambitoa_price + 1 * serlahh*config.serlahh_price + 1 * serlatoa*config.serlatoa_price;
+
 	para.appendChild(document.createTextNode("Totalkostnad:"+totalcost));
 	para.appendChild(document.createElement("br"));
-
 
 	var tableRef = document.getElementById('nisse').getElementsByTagName('tbody')[0];
 	//  put data in table dummy record (orderlength) aswell, timestamp is calculated at commit
@@ -174,23 +160,32 @@ function buildCommitOrder(config) {
 		document.getElementById("myDIV").removeChild(oldpara);
 	}
 
-   // insert new
-   document.getElementById("myDIV").appendChild(para);
-   oldpara = para;
-	
-	
+	// insert new
+	document.getElementById("myDIV").appendChild(para);
+	oldpara = para;
+
 }
 
 
 function submit_by_name() {
 	/* 
 	 * submitting the input form containing the order data
-	 * 
 	 * First reads the config in DB and then builds the page in callabck buildCommitOrder();
 	 */	 
-	
+	var remoteDb = new PouchDB(couchdbURL+'remcust');
+    remoteDb.getSession()
+	.then(function (response){
+		if (!response.userCtx.name) {
+			// not logged in
+			location.assign('loginPage.html?page=ordersEdit3.html&customerid='+customerid+'&orderskey=internal:'+customerid);
+		} else if (response.userCtx.name) {
+			console.log(response['userCtx']);
+		}
+	})
+	.then(function () {
 	readConfigurationFromDb(buildCommitOrder);
-
+});
+    
 }
 
 

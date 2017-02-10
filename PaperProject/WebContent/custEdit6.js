@@ -1,17 +1,13 @@
 
-
-/* see jsHelpFunctions
-var getQueryString = function ( field, url ) {
-	var href = url ? url : window.location.href;
-	var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
-	var string = reg.exec(href);
-	return string ? string[1] : null;
-};
-*/
-
+var couchdbURL = 'http://'+localStorage.dbipaddress+':5984/';
 /* this arrey represents the cells in a row in the table */
 var cellValues = ["","","","","", "","","","","", "","","","","", "","","","","", "","",""];
 var oldpara;
+var customerid = getQueryString('customerid');
+var newcustomer = getQueryString('newcustomer');
+var initObj = {};
+var customerDataObj;
+
 
 
 var valueHasChanged = function (cellIndex, newContent) {
@@ -114,53 +110,65 @@ var valueHasChanged = function (cellIndex, newContent) {
 function commitToDb() {
 
 	console.log("-- commitToDB---");
-	var obj1 = {};
-	var key = "";
 
-	// create the object "obj1" 
-	// "obj1" contains the values that have been updated
-	// map goes from 1 to 22, first cell value (customerid is in cellValue[0]) 
-	// is not inside the customers object
-	for (j=1; j<23; j++) {
-		var xyz = cellValues[j];
-		if(cellValues[j] !=  "") {
-			// value has been updated
-			key = mapget(j);
-			obj1[key] = xyz;
+	var remoteDb = new PouchDB(couchdbURL+'remcust');
+    remoteDb.getSession()
+	.then(function (response){
+		if (!response.userCtx.name) {
+			// not logged in
+			location.assign('loginPage.html?page=custEdit6.html&customerid='+customerid);
+		} else if (response.userCtx.name) {
+			console.log(response['userCtx']);
 		}
-	}
-	var cuname_changed = false;
-	// check if customername has changed by user, if so then the ordering data needs update (the last record)
-	if("customername" in obj1) {
-		cuname_changed = true;
-	}
-
-	// add the propeties that have not changed to obj1...now obj1 has differnt meaning :-)
-	for (j=1; j<23; j++) {
-		if(!(mapget(j) in obj1)) {
-			obj1[mapget(j)] = initObj[mapget(j)];
+	})
+	.then(function () {
+		var obj1 = {};
+		var key = "";
+		// create the object "obj1" 
+		// "obj1" contains the values that have been updated
+		// map goes from 1 to 22, first cell value (customerid is in cellValue[0]) 
+		// is not inside the customers object
+		for (j=1; j<23; j++) {
+			var xyz = cellValues[j];
+			if(cellValues[j] !=  "") {
+				// value has been updated
+				key = mapget(j);
+				obj1[key] = xyz;
+			}
 		}
-	}
+		var cuname_changed = false;
+		// check if customername has changed by user, if so then the ordering data needs update (the last record)
+		if("customername" in obj1) {
+			cuname_changed = true;
+		}
 
-	// set "_id" for Pouch
-	
-	obj1["_id"] = customerid;               		
-	console.log("--commitToDb--");
+		// add the propeties that have not changed to obj1...now obj1 has differnt meaning :-)
+		for (j=1; j<23; j++) {
+			if(!(mapget(j) in obj1)) {
+				obj1[mapget(j)] = initObj[mapget(j)];
+			}
+		}
 
-	if(cuname_changed) {
-		console.log("customer name changed, update order also");
-		updateCustomerInPouchAndOrderToo(obj1);
-		// updates customer and order...
-		//
-		// fetch the order for this customer   
-		// update the customer name....
-		// update the local orders db
-		// sync alll DBs
-	}
-	else {
-		console.log("--update customer only--");
-		updateCustomerInPouchAndCustEdit(obj1);
-	}
+		// set "_id" for Pouch
+
+		obj1["_id"] = customerid;               		
+		console.log("--commitToDb--");
+
+		if(cuname_changed) {
+			console.log("customer name changed, update order also");
+			updateCustomerInPouchAndOrderToo(obj1);
+			// updates customer and order...
+			//
+			// fetch the order for this customer   
+			// update the customer name....
+			// update the local orders db
+			// sync alll DBs
+		}
+		else {
+			console.log("--update customer only--");
+			updateCustomerInPouchAndCustEdit(obj1);
+		}
+	});
 };   
 
      
@@ -280,13 +288,12 @@ $(function() {
 
 });
 
-
+/*
 var customerid = getQueryString('customerid');
 var newcustomer = getQueryString('newcustomer');
-var myDataRef = "";
 var initObj = {};
-
 var customerDataObj;
+*/
 
 function createCustomerEditTable(customerData,custid) {
 	/* Here the table is created when the page is loaded/reloaded 
@@ -398,8 +405,6 @@ function removeCustomerId() {
 	   // fetch customer just created from Pouch and delete, also delete the order!
 	   var docToRemove = findCustomerInPouchAndShowPage(customerid, true);
 	      
-	   
-	   
 	   //var par = snapshot.val();
 	   //var key = snapshot.key();
 

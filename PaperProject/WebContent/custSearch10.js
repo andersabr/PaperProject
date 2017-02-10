@@ -103,56 +103,73 @@ function addCustomerId() {
 	//console.log("---- custSearch... ------ addCustomerId");
 	var custind = findFirstCustidNotUsed(globalCustomerData);
 
-	var Cobj2 = {};
-	var Ckey2 = "";
-	var Cobj1 = {};
-	var Ckey1 = custind;
 
-	// set all propreties = "_"
-	for (j=1; j<23; j++) {
-		Ckey2 = mapget(j);
-		Cobj2[Ckey2] = "_";
-	}
-	// connect to a transaction
-	Cobj2["orderskey"] = "internal:"+custind;
-	Cobj2["_id"] = custind;
 
-	// Cobj1 not needed now but perhaps later
-	// Cobj1[Ckey1] = Cobj2;
-	//console.log("-------addCustomerId --Cobj2: ");
-	//console.log(Cobj2);
 
-	// create defualt Orders object 
+	// check if logged in
 
-	var customername = "_";
-	var existstoo = false;
+	var remoteDb = new PouchDB(couchdbURL+'remcust');
+	remoteDb.getSession()
+	.then(function(response) {
+		if (!response.userCtx.name) {
+			// not logged in
+			console.log(response);
+			location.assign('loginPage.html?page=custSearch10.html');	
+		} else if (response.userCtx.name) {
+			console.log(response['userCtx']);
+			
+			var Cobj2 = {};
+			var Ckey2 = "";
 
-	var Tobj2 = {};
+			// set all propreties = "_"
+			for (j=1; j<23; j++) {
+				Ckey2 = mapget(j);
+				Cobj2[Ckey2] = "_";
+			}
+			// connect to a transaction
+			Cobj2["orderskey"] = "internal:"+custind;
+			Cobj2["_id"] = custind;
 
-	var Tkey2 = "lambihh";
-	Tobj2[Tkey2] = 0;
-	Tkey2 = "lambitoa";
-	Tobj2[Tkey2] = 0;
-	Tkey2 = "serlahh";
-	Tobj2[Tkey2] = 0;
-	Tkey2 = "serlatoa";
-	Tobj2[Tkey2] = 0;
-	Tkey2 = "totalcost";
-	Tobj2[Tkey2] = 0;
-	Tkey2 = "transactiondate";
-	Tobj2[Tkey2] = "xxxx-xx-xx";
-	// insert customer name here
-	Tkey2 = "customername";
-	Tobj2[Tkey2] = customername;
+			//var Cobj1 = {};
+			//var Ckey1 = custind;
+			// Cobj1 not needed now but perhaps later
+			// Cobj1[Ckey1] = Cobj2;
+			//console.log("-------addCustomerId --Cobj2: ");
+			//console.log(Cobj2);
 
-	// inser object into another object
-	var Tobj1 = {};
-	var Tkey1 = "Tx";
-	Tobj1[Tkey1] = Tobj2;
-	Tobj1["_id"]= "internal:"+custind;
-	// adds customer and order objects to db
-	addCustomerToPouchAndCustEdit(Cobj2,Tobj1);
+			
+			// create defualt Orders object 
+			var customername = "_";
+			var existstoo = false;
 
+			var Tobj2 = {};
+
+			var Tkey2 = "lambihh";
+			Tobj2[Tkey2] = 0;
+			Tkey2 = "lambitoa";
+			Tobj2[Tkey2] = 0;
+			Tkey2 = "serlahh";
+			Tobj2[Tkey2] = 0;
+			Tkey2 = "serlatoa";
+			Tobj2[Tkey2] = 0;
+			Tkey2 = "totalcost";
+			Tobj2[Tkey2] = 0;
+			Tkey2 = "transactiondate";
+			Tobj2[Tkey2] = "xxxx-xx-xx";
+			// insert customer name here
+			Tkey2 = "customername";
+			Tobj2[Tkey2] = customername;
+
+			// inser object into another object
+			var Tobj1 = {};
+			var Tkey1 = "Tx";
+			Tobj1[Tkey1] = Tobj2;
+			Tobj1["_id"]= "internal:"+custind;
+			// adds customer and order objects to db
+			addCustomerToPouchAndCustEdit(Cobj2,Tobj1);
+		}
+
+	})
 } 
 
 
