@@ -103,11 +103,7 @@ function addCustomerId() {
 	//console.log("---- custSearch... ------ addCustomerId");
 	var custind = findFirstCustidNotUsed(globalCustomerData);
 
-
-
-
 	// check if logged in
-
 	var remoteDb = new PouchDB(couchdbURL+'remcust');
 	remoteDb.getSession()
 	.then(function(response) {
@@ -168,7 +164,6 @@ function addCustomerId() {
 			// adds customer and order objects to db
 			addCustomerToPouchAndCustEdit(Cobj2,Tobj1);
 		}
-
 	})
 } 
 
@@ -190,6 +185,14 @@ function emailCustomer() {
 }
 
 function logout() {
-  location.assign("./logout2.html");
+	// just logout from DB	
+	var remoteDb = new PouchDB(couchdbURL+'remcust');
+	remoteDb.logout()
+	.then(function (response){
+		console.log(response);
+		return response;
+	}).catch(function (error) {
+		console.log(error);
+	});
 }
 

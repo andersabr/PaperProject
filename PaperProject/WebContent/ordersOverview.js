@@ -176,6 +176,15 @@ function listOrdersId() {
 */
 
 function logout() {
-  location.assign("./logout2.html");
+	// just logout from DB	
+	var remoteDb = new PouchDB(couchdbURL+'remcust');
+	remoteDb.logout()
+	.then(function (response){
+		console.log(response);
+		return response;
+	}).catch(function (error) {
+		console.log(error);
+	});
 }
+
 

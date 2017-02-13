@@ -64,19 +64,16 @@ Issues that have been fixed:
   Fixed  ]
 
 
-Functions:
-----------
+Functions to add:
+-------------
 - Backup of DB
   Nothing has been done here. Maybe copy some files on the remote DBs.
   
-- Having CouchDB and the nodemailer on the net
-  CouchDB 2.0 is currently running on a Raspberry Pi / Rasbian
-  nodemailer is running locally in Windows 7
-   
-- Authentication
-  Now using authentication in CouchDB for admin access when deleting databases. 
-  
-- Javascript libs shall be stored locally  
+- Having CouchDB and the nodemailer on a public net
+  CouchDB 2.0 is currently running on a Raspberry Pi (Rasbian) and on Local host (Windows 7)
+  Nodemailer is running on local host (Windows 7)
+     
+- Javascript libs shall be stored locally 
   
 - Running without connection
   Should be possible to read DB data from local PouchDB
@@ -84,7 +81,9 @@ Functions:
 - Summing up the orders and display result dynamically on top of page "Beställningar"
  
 - Possible to configure mailer URL in config DB, currently it is hardcoded to 127.0.0.1.
-  
+ 
+ 
+ 
 
 
  
