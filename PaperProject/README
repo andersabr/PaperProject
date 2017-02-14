@@ -30,7 +30,54 @@ Running the web app for the first time
 -Go back to "Konfiguration" and load the ordering data by clicking 
  "Ladda beställningar ifrån fil"
 
--The web app is now ready for use.
+-The web app is now ready to use.
+
+
+
+Enable sending E-mails from the web app with mailer server (nodemailer) running on windows 
+===========================================================================================
+-Goto https://nodejs.org/download/release/v4.2.3/ and download "node-v4.2.3-x64.msi"
+
+-Double-click on "node-v4.2.3-x64.msi" to install node.js on windows
+
+-Fetch the files "app.js" and "packeage.json" from
+ https://github.com/andersabr/PaperProject/tree/master/PaperProject/Utils
+ and store them in the directory were the mailer server (nodemailer) will be started
+ 
+-Open a cmd-window and cd to the the same directory and execute the command "npm install".
+ This will install "nodemailer" and its dependencies.
+   
+-Start the mailer server with  "node app.js". When the server is started it prints "listening on 5000".
+
+-Goto "hem.bredband.net/abrand2"
+
+-Click on "E-post till kund"
+
+-Click on "Återställ" at the bottom of the page.
+
+-If the template for the E-mails in "Innehåll" is what you want, click on "Spara Mall".
+
+-The list under "E-post data" contains the customers that will receive an E-mail. To add/remove customers, change the 
+ value of the column "Skicka e-post" for the customer on the Kundregister page. 
+ 
+-Send the E-mails by pressing the botton "Massutskick" on the  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+ 
+ 
+
+
 
 
  
