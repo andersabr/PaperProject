@@ -1,0 +1,43 @@
+
+Installation of CouchDB
+=======================
+
+-Goto "http://couchdb.apache.org/" and download CouchDB installation file  
+
+-Double click the file to start the installation
+
+-When istalled, open up the CouchDB utils, named "Fauxton" 
+If CouchDB was installed locally the URL for "Fauxton" is:  http://127.0.0.1:5984/_utils
+
+-In "Fauxton" click "Setup" and "Configure Single Node" and specify the admin user and pw
+
+-Also within "Fauxton", click Configuration and enable CORS. In "Main Config" check that CORS "credentials" parameter 
+ is set to "true"
+
+
+Running the web app for the first time
+======================================
+
+-Goto "hem.bredband.net/abrand2"
+
+-Click on "Konfiguration" and type in the "DB server IP-adress" (127.0.0.1 if CouchDB was installed locally)
+
+-Click on "Spara IP-address"
+
+-Load customer data to be used in the web app by clicking 
+ "Ladda kund-info ifrån fil". (admin login to CouchDB needed).
+ 
+-Go back to "Konfiguration" and load the ordering data by clicking 
+ "Ladda beställningar ifrån fil"
+
+-The web app is now ready for use.
+
+
+ 
+
+
+
+
+
+
+
