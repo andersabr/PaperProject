@@ -1,0 +1,4 @@
+{
+  "_id": "_design/write_access",
+  "validate_doc_update": "function (newDoc, oldDoc, userCtx, secObj) {var role = 'writer';if (userCtx.roles.indexOf('_admin') === -1 && userCtx.roles.indexOf(role) === -1) {throw({forbidden : 'Only users with role ' + role + ' or an admin can modify this database.'});}}"
+}

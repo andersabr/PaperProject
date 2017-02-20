@@ -1,0 +1,8 @@
+{
+  "_id": "_design/showtimestamp",
+  "shows": {
+    "timestamp": "function(doc, req)  {return ''+String(Math.round(new Date().getTime()));}",
+    "serverTime": "function(doc, req) {return 'serverTime({\"timestamp\": '+String(Math.round(new Date().getTime()))+'});';}"
+  }
+}
+
