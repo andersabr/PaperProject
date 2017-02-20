@@ -1,4 +1,3 @@
-
 Installation of CouchDB
 =======================
 
@@ -11,7 +10,7 @@ If CouchDB was installed locally the URL for "Fauxton" is:  http://127.0.0.1:598
 
 -In "Fauxton" click "Setup" and "Configure Single Node" and specify the admin user and pw
 
--Also within "Fauxton", click Configuration and enable CORS. In "Main Config" check that CORS "credentials" parameter 
+-Also within "Fauxton", click Configuration and enable "CORS". In "Main Config" check that CORS "credentials" parameter 
  is set to "true"
 
 
@@ -25,7 +24,7 @@ Running the web app for the first time
 -Click on "Spara IP-address"
 
 -Load customer data to be used in the web app by clicking 
- "Ladda kund-info ifrån fil". (admin login to CouchDB needed).
+ "Ladda kund-info ifrån fil"  (admin login to CouchDB needed).
  
 -Go back to "Konfiguration" and load the ordering data by clicking 
  "Ladda beställningar ifrån fil"
@@ -40,18 +39,17 @@ Enable sending E-mails from the web app with mailer server (nodemailer) running 
 
 -Double-click on "node-v4.2.3-x64.msi" to install node.js on windows.
 
--Fetch the files "app.js" and "packeage.json" from
- https://github.com/andersabr/PaperProject/tree/master/PaperProject/Utils
- and store them in the directory were the mailer server (nodemailer) will be started
+-Fetch the files "app.js" and "packeage.json" from "https://github.com/andersabr/PaperProject/tree/master/PaperProject/Utils"
+ and store them in the directory were you want to start the mailer (nodemailer).
  
--Open a cmd-window and "cd" to the the same directory and execute the command "npm install".
+-Open a cmd-window and "cd" to the directory and execute the command "npm install".
  This will install "nodemailer" and its dependencies.
    
 -Start "nodemailer" with the command "node app.js" in the cmd-window. When the server is started it prints "listening on 5000".
 
--Goto "hem.bredband.net/abrand2"
+-Goto "hem.bredband.net/abrand2".
 
--Click on "E-post till kund"
+-Click on "E-post till kund".
 
 -Click on "Återställ" at the bottom of the page.
 
@@ -61,6 +59,65 @@ Enable sending E-mails from the web app with mailer server (nodemailer) running 
  value of the column "Skicka e-post" for the customer on the "Kundregister" page. 
  
 -Send the E-mails by pressing the button "Massutskick" on the "E-post till kund" page
+
+
+
+Howto convert the excel-data to Json-files (customers.json and orders.json) that can be loaded into the web app
+===============================================================================================================
+- Copy the orignal excel-file and work on the copy.
+
+- In the 4 numeric colums beginning with "Antal..", replace all empty cells with "0"
+
+- Replace all other empty cells with "_"
+
+- Save your work here!
+
+- Follow the procedure described in "https://blog.udemy.com/excel-to-xml/". Use the xml-file "customersTmpl.xml" from
+  "https://github.com/andersabr/PaperProject/tree/master/PaperProject/Utils" when creating the XML-mapping (all 28 colums shall 
+  be mapped). When working with the mapping click the "verify export"-link continously and after a column
+  has been successfully mapped, save your work.
+  
+- When the excel-data has been exported to an xml-file use for example 
+  "http://convertjson.com/xml-to-json.htm" to convert the xml-file to JSON.
+  
+- After conversion to a JSON file, in the beginning of the JSON-file and remove all characters before 
+  the first "[". That is remove the characters:  
+  
+  {
+   "customers": {
+      "customerdata":
+      
+  At the end of the JSON-file remove all characters after the last "]". That is the characters:
+  
+  ,
+      "_xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance"
+    }
+  }
+  
+  The JSON-file now contains an "array of objects".
+
+ - Save the file in UTF8 format.
+ 
+ - Process the file using the page "hem.bredband.net/abrand2/fileSelector.html". When selecting the JSON-file from the local
+   filesystem, the file "customers.json" or "orders.json" will be created (2 separate executions needed).
+   
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+  
+  
+    
+
+  
   
 
 
