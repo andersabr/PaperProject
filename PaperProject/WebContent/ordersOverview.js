@@ -38,8 +38,8 @@ function createOrdersTable(ordersData) {
 
 	$(document).ready(function() {
 
-		console.log("----createCustomerOrdersTable------");
-		console.log(ordersData);
+		//console.log("----createCustomerOrdersTable------");
+		//console.log(ordersData);
 		// the table
 		var tableRef = document.getElementById('nisse').getElementsByTagName('tbody')[0];
 

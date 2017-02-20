@@ -42,8 +42,8 @@ $(function() {
 function createCustomerTable(customerData) {
 	globalCustomerData = customerData;
 	$(document).ready(function() {
-		console.log("---createCustomerTable ------ logging customerData");
-		console.log(customerData);
+	//	console.log("---createCustomerTable ------ logging customerData");
+	//	console.log(customerData);
 
 		// the table
 		tableRef = document.getElementById('nisse').getElementsByTagName('tbody')[0];

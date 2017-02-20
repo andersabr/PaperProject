@@ -220,24 +220,24 @@ function initConfiguration(callback) {
 		retry: true
 	}).on('complete', function (info) {
 		// replication complete
-		console.log(info);
+		//console.log(info);
 		var dbConfig = new PouchDB("config");
 
 		dbConfig.allDocs({
 			include_docs: true
 		}
 		).then(function (resultConfigFromPouch,obj2) {
-			console.log("----initConfiguration ----");
-			console.log(resultConfigFromPouch);
+		//	console.log("----initConfiguration ----");
+		//	console.log(resultConfigFromPouch);
 			var obj = resultConfigFromPouch;
 			if(obj['rows'].length == 0) {
 				obj2 = setInitConfigInDB();
 			}
 			else {
 				obj2 = obj['rows'][0]["doc"];
-				console.log(obj2);
+		//		console.log(obj2);
 			}
-			console.log(obj2);
+		//	console.log(obj2);
 			callback(obj2);
 			return obj2;
 		})
@@ -323,22 +323,24 @@ function readConfigurationFromDb(callback) {
 
 function readCustomerDataFromDB(callback) {
 
-	console.log("---readCustomerDataFromDB 1---");
+	//console.log("---readCustomerDataFromDB 1---");
 	
 	var info = PouchDB.replicate(couchdbURL+'remcust','customers', {
 		// live: true,
 		retry: true
 	}).on('complete', function (info) {
-		console.log(info);
-		// replicate Orders from Couch
-		readOrdersDataFromDB(null);
+		//console.log(info);
+		
+		// not needed?
+		//readOrdersDataFromDB(null);
+		
 		var database = new PouchDB('customers');
 		database.allDocs({
 			include_docs: true
 		})
 		.then(function (resultCustFromPouch) {
-			console.log("readCustomerDataFromDB 2");
-			console.log(resultCustFromPouch);
+			//console.log("readCustomerDataFromDB 2");
+			//console.log(resultCustFromPouch);
 			// here DB format is converted to Widget format
 			retrieveDocsFromDBresult(resultCustFromPouch,callback);
 		})
@@ -379,7 +381,7 @@ function readOrdersDataFromDB(callback) {
 		// live: true,
 		retry: true
 	}).on('complete', function (info) {
-		console.log(info);
+		//console.log(info);
 		//var database = new PouchDB('orders');
 		if(callback != null) {   // check if function instead!!!
 			var dbOrd = new PouchDB("orders");
