@@ -1,8 +1,36 @@
 
-/*This map contains the keys in the customer obj 
- *  
- *  
- * */
+var mapImport = {
+		"1":"_id",
+		"2":"altdeliveryreceiver",
+		"3":"altdeliveryaddress",
+		"4":"altdistlist",
+		"5":"billingaddress",
+		"6":"cancelationday",
+		"7":"city",
+		"8":"comments",
+		"9":"contactperson",
+		"10":"customername",
+		"11":"delivery",
+		"12":"deliveryaddress",
+		"13":"deliverycomment",
+		"14":"distlist",
+		"15":"emailaddress",
+		"16":"mobile",
+		"17":"orderskey",
+		"18":"paymentmethod",
+		"19":"phone",
+		"20":"postalcode",
+		"21":"salesperson",
+		"22":"sendemail",
+		"23":"team"
+};
+
+var mapImportget = function (k) {
+	return mapImport[k];
+};
+
+
+
 var map = {
 		"1":"team",
 		"2":"contactperson",

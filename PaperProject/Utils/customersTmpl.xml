@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<customers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<customerdata>
+		<_id>FP0001</_id>
+		<team>A</team>
+		<contactperson>Kansliet</contactperson>
+		<customername>Ason</customername>
+		<deliveryaddress>Bleckslagaregatan 1</deliveryaddress>
+		<distlist>Grupp 3A</distlist>
+		<postalcode>164 41</postalcode>
+		<city>Stockholm</city>		
+		<serlatoa>1</serlatoa>
+		<seralhh>2</seralhh>
+		<lanbitoa>3</lanbitoa>
+		<lambihh>4</lambihh>
+		<total>123</total>
+		<mobile>070-1234567</mobile>
+		<phone>08-123456</phone>
+		<sendemail>Nej</sendemail>
+		<emailaddress>slasktrattkonto@gmail.com</emailaddress>	
+		<salesperson>Kloker</salesperson>
+		<cancelationday>_</cancelationday>
+		<junechange>_</junechange>
+		<comments>_</comments>
+		<paymentmethod>Faktureras företaget men levereras till Bleckslagargatan</paymentmethod>
+		<delivery>_</delivery>
+		<deliverycomment>_</deliverycomment>
+		<billingaddress>_</billingaddress>
+		<altdeliveryreceiver>_</altdeliveryreceiver>
+		<altdeliveryaddress>_</altdeliveryaddress>
+		<altdistlist>_</altdistlist>
+</customerdata>
+<customerdata>
+		<_id>FP0002</_id>
+		<team>A</team>
+		<contactperson>Kansliet</contactperson>
+		<customername>Ason</customername>
+		<deliveryaddress>Bleckslagaregatan 1</deliveryaddress>
+		<distlist>Grupp 3A</distlist>
+		<postalcode>164 41</postalcode>
+		<city>Stockholm</city>		
+		<serlatoa>1</serlatoa>
+		<seralhh>2</seralhh>
+		<lanbitoa>3</lanbitoa>
+		<lambihh>4</lambihh>
+		<total>123</total>
+		<mobile>070-1234567</mobile>
+		<phone>08-123456</phone>
+		<sendemail>Nej</sendemail>
+		<emailaddress>slasktrattkonto@gmail.com</emailaddress>	
+		<salesperson>Kloker</salesperson>
+		<cancelationday>_</cancelationday>
+		<junechange>_</junechange>
+		<comments>_</comments>
+		<paymentmethod>Faktureras företaget men levereras till Bleckslagargatan</paymentmethod>
+		<delivery>_</delivery>
+		<deliverycomment>_</deliverycomment>
+		<billingaddress>_</billingaddress>
+		<altdeliveryreceiver>_</altdeliveryreceiver>
+		<altdeliveryaddress>_</altdeliveryaddress>
+		<altdistlist>_</altdistlist>
+</customerdata>
+</customers>
+	
