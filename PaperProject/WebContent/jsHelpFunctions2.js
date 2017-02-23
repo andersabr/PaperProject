@@ -73,6 +73,7 @@ function findFirstCustidNotUsed(customerData) {
 	var found = false;
 	out:
 		if(!found) {
+		  /*
 			for(i=1;i<10;i++) {
 				found = false;
 				customerid = "FP000" + i;
@@ -96,7 +97,10 @@ function findFirstCustidNotUsed(customerData) {
 					break out;
 				}
 			}
-			for(i=100;i<999;i++) {
+			
+			Do not pick anything below 500
+			*/
+			for(i=500;i<999;i++) {
 				found = false;
 				customerid = "FP0" + i;
 
