@@ -6,6 +6,7 @@ var config;
 
 function resetCustomers() {
 	/*
+	 *
 	 * ONLY INTEDED FOR DESIGN PURPOSES 
 	 * clears Pouche, clears Couch and the table,
 	 * Therafter reads the data from file and stores in all the DBs
