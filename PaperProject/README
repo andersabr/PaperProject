@@ -8,7 +8,7 @@ Installation of CouchDB
 -When istalled, open up the CouchDB utils, named "Fauxton" 
 If CouchDB was installed locally the URL for "Fauxton" is:  http://127.0.0.1:5984/_utils
 
--In "Fauxton" click "Setup" and "Configure Single Node" and specify the admin user and pw
+-In "Fauxton" click "Setup" and "Configure Single Node" and specify an admin "user" and "pw"
 
 -Also within "Fauxton", click Configuration and enable "CORS". In "Main Config" check that CORS "credentials" parameter 
  is set to "true"
@@ -23,8 +23,8 @@ Running the web app for the first time
 
 -Click on "Spara IP-address"
 
--Load customer data to be used in the web app by clicking 
- "Ladda kund-info ifrån fil"  (admin login to CouchDB needed).
+-Load customer data to be used when trying out the web app by clicking 
+ "Ladda kund-info ifrån fil"  (admin login to CouchDB will be needed).
  
 -Go back to "Konfiguration" and load the ordering data by clicking 
  "Ladda beställningar ifrån fil"
@@ -98,8 +98,11 @@ Howto convert the excel-data to Json-files (customers.json and orders.json) that
 
  - Save the file in UTF8 format.
  
- - Process the file using the page "hem.bredband.net/abrand2/fileSelector.html". When selecting the JSON-file from the local
-   filesystem, the file "customers.json" or "orders.json" will be created (2 separate executions needed).
+ - Convert the file using the page "Utils" (button on "Konfiguration" page). 
+   When selecting the JSON-file from the local filesystem, the file "customers.json" or "orders.json" 
+   will be created (2 separate coversions of the same input file).
+   
+   
    
    
  
