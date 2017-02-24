@@ -3,10 +3,12 @@ var couchdbURL = 'http://'+localStorage.dbipaddress+':5984/';
 var config;
 
 
+function utilsPage() {
+	  location.assign("./fileSelector.html");
+}
 
 function resetCustomers() {
 	/*
-	 *
 	 * ONLY INTEDED FOR DESIGN PURPOSES 
 	 * clears Pouche, clears Couch and the table,
 	 * Therafter reads the data from file and stores in all the DBs

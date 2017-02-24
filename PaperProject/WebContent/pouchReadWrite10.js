@@ -354,6 +354,7 @@ function readCustomerDataFromDB(callback) {
 }
 
 
+
 function readCustomerDataFromFile(callback) {
 
 	//*******************************************************
@@ -366,7 +367,7 @@ function readCustomerDataFromFile(callback) {
 		success: function(data) {   // ajax callback function
 			//if (typeof callback === "function") {
 			// handle the data read
-			var res = storeBulkInPouchAndRead(data,callback); 
+			var res = storeBulkInPouchAndRead(data,callback,"./custSearch10.html"); 
 			console.log(data);
 			//}
 		}
@@ -592,7 +593,8 @@ function sleep(milliseconds) {
 }
 
 
-function storeBulkInPouchAndRead(jsonData,callback) {
+
+function storeBulkInPouchAndRead(jsonData, callback, file) {
 	// if jsonData != null, creates DB with jsonData
 	// else reads the DB
 	var db = new PouchDB('customers');
@@ -611,7 +613,7 @@ function storeBulkInPouchAndRead(jsonData,callback) {
 			}).then(function (resultPouch) {
 				// store in Couch and display startpage
 				// the page reads Pouch again....
-				replicateToCouchAndShowPage('customers',couchdbURL+'remcust',"./custSearch10.html");
+				replicateToCouchAndShowPage('customers',couchdbURL+'remcust',file);
 			}).catch(function (err) {
 				console.log(err);
 			});  // end catch
@@ -646,13 +648,15 @@ function storeBulkInPouchAndReadOrders(jsonData,callback) {
 			return new PouchDB('orders');
 		}).then(function (dbOrd) {
 			// storing all docs in Pouch
+			console.log(jsonData);
 			dbOrd.bulkDocs(jsonData).then(function () {
 				return dbOrd.allDocs({
 					include_docs: true
 				});
 			}).then(function (resultPouch) {
 				// store in Couch and display startpage
-				console.log("replicating to remorders");
+				//console.log(resultPouch);
+				//console.log("replicating to remorders");
 				replicateToCouchAndShowPage('orders',couchdbURL+'remorders',"./ordersOverview.html");
 			}).catch(function (err) {
 				console.log(err);

@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Konfiguration</title>
+<title>Utiliteter</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="fileSelector.css">
 <script src="jquery.min.js"></script>
 <script src="jquery-ui.min.js"></script>
+<script src="pouchdb-6.1.2.min.js"></script>
+<script src="pouchdb.authentication.min.js"></script>
+<script src="pouchReadWrite10.js"></script>
 <script src="jsHelpFunctions2.js"></script>
 <script src="fileSelector.js"></script>
 </head>
 <body>
-<h3>Konvertera kund- och orderdata för produktion</h3>
-<P>Kunddata
+<h3>Konvertera kund- och orderdata från Excel</h3>
+<P>Konvertera Json-fil med kunddata:<b></b>
 <input type="file" id="your-files-customers"  single>
 <script>
 execFileSelectorCustomers();
 </script>
-<P>Orderdata
+<P>Konvertera Json-fil med orderdata:<b></b>
 <input type="file" id="your-files-orders" single>
 <script>
 execFileSelectorOrders();
+</script>
+<h3>Ladda konverterat kund- och orderdata</h3>
+<P>Ladda kunddata:<b></b>
+<input type="file" id="load-customers"  single>
+<script>
+execLoadCustomers();
+</script>
+<P>Ladda orderdata:<b></b>
+<input type="file" id="load-orders" single>
+<script>
+execLoadOrders();
 </script>
 <!--  
 <h3>Ladda produktionsdata</h3>

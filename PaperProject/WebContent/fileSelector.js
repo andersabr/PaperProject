@@ -1,4 +1,6 @@
+var couchdbURL = 'http://'+localStorage.dbipaddress+':5984/';
 
+/**/
 function execFileSelectorCustomers() {
 	var fileInput = document.getElementById("your-files-customers");
 	fileInput.addEventListener("change", function(e) {
@@ -21,6 +23,7 @@ function execFileSelectorCustomers() {
 	});
 }
 
+/**/
 function execFileSelectorOrders() {
 	var fileInput = document.getElementById("your-files-orders");
 	fileInput.addEventListener("change", function(e) {
@@ -42,12 +45,141 @@ function execFileSelectorOrders() {
 	});
 }
 
+/**/
+function execLoadCustomers() {
+	var fileInput = document.getElementById("load-customers");
+	fileInput.addEventListener("change", function(e) {
+
+		var file = fileInput.files[0];
+		console.log(file);
+		
+		var textType = /text.*/;
+		var reader = new FileReader();
+		
+		reader.readAsText(file,'utf-8');	
+		reader.onload = function(e) {
+			
+			var obj = JSON.parse(reader.result);
+			console.log(obj);
+			
+			resetCustomersFromLocalFS(obj)
+			
+		}
+	});
+}
+
+/**/
+function resetCustomersFromLocalFS(obj) {
+	/*
+	 * ONLY INTEDED FOR DESIGN PURPOSES 
+	 * clears Pouche, clears Couch and the table,
+	 * Therafter reads the data from file and stores in all the DBs
+	 * Finally loads the start table
+	 */
+	var remoteDb = new PouchDB(couchdbURL+'remcust');
+    remoteDb.getSession()
+	.then(function(response) {
+		if (!response.userCtx.name) {
+			// not logged in
+			console.log(response);
+			location.assign('loginPage.html?page=fileSelector.html');	
+		} else if (response.userCtx.name) {
+			console.log(response['userCtx']);
+			var db = new PouchDB('customers');
+			var remoteDb = new PouchDB(couchdbURL+'remcust');
+			var x;
+			
+			if (confirm("ÄR DU 100% SÄKER? DATABASEN MED ALLA KUNDER KOMMER ATT RADERAS !!") == true) {
+				db.destroy().then(function (response) {
+					console.log("PouchDB cleared");
+					remoteDb.destroy().then(function (response) { 
+						console.log("CouchDB cleared");
+						// clears the table 
+						$('#nisse tbody > tr').remove();
+						// read data from file, store in Pouch and reload page
+						storeBulkInPouchAndRead(obj,null,"./custSearch10.html"); 
+					});
+				}).catch(function (err) {
+					console.log(err);
+				});
+			} else {
+				x = "You pressed Cancel!";
+			}
+		}
+	}) 
+}
+
+
+
+function execLoadOrders() {
+	var fileInput = document.getElementById("load-orders");
+	fileInput.addEventListener("change", function(e) {
+
+		var file = fileInput.files[0];
+		console.log(file);
+		
+		var textType = /text.*/;
+		var reader = new FileReader();
+		
+		reader.readAsText(file,'utf-8');	
+		reader.onload = function(e) {
+			
+			var obj = JSON.parse(reader.result);
+			console.log(obj);
+			
+			resetOrdersFromLocalFS(obj);			
+		}
+	});
+}
+
+function resetOrdersFromLocalFS(obj) {
+	/*
+	 * ONLY INTEDED FOR DESIGN PURPOSES
+	 * clears Pouche, clears Couch and the table,
+	 * Therafter reads the data from file and stores in all the DBs
+	 * Finally loads the start table
+	 */
+
+	var remoteDb = new PouchDB(couchdbURL+'remorders');
+	remoteDb.getSession()
+	.then(function(response) {
+		if (!response.userCtx.name) {
+			// not logged in
+			location.assign('loginPage.html?page=fileSelector.html');	
+		} else if (response.userCtx.name) {
+			console.log(response['userCtx']);
+			var db = new PouchDB('orders');
+			var remoteDb = new PouchDB(couchdbURL+'remorders');
+			var x;
+
+			if (confirm("ÄR DU 100% SÄKER? DATABASEN MED ALLA BESTÄLLNINGAR KOMMER ATT RADERAS !!") == true) {
+
+				db.destroy()
+				.then(function (response) {
+					console.log("PouchDB cleared");
+					remoteDb.destroy().then(function (response) { 
+						console.log("CouchDB cleared");
+						// clears the table 
+						$('#nisse tbody > tr').remove();
+						
+						storeBulkInPouchAndReadOrders(obj,null);
+						//readOrdersDataFromFile(null);
+					});
+				})
+				.catch(function (err) {
+					console.log(err);
+				});
+			} else {
+				x = "Du valde att avbryta.";
+			}
+		}
+	})
+}
 
 
 
 
-
-
+/* */
 function writeCustomerDataFile(data) {
 	console.log(data);
 
@@ -150,10 +282,6 @@ function writeOrderDataFile(data) {
 	saveTextAsFile(outObj,"orders");
 }
 
-
-
-
-
 	
 function saveTextAsFile(data,filename)
 {
@@ -172,11 +300,11 @@ function saveTextAsFile(data,filename)
     downloadLink.click();
 }
 
-
+/*
 
 function resetCustomers() {
 
-/*	
+*	
 	db.doSomething(args).then(function (response){
 		  return db.doSomethingElse(args);
 		}).then(function response) {
@@ -185,7 +313,7 @@ function resetCustomers() {
 		  // handle error
 		});
 	
-	*/
+	*
 	
 	remoteDb.getSession()
 	.then(function(response) {
@@ -216,7 +344,6 @@ function resetCustomers() {
 		}
 	}) 
 }
-
 
 
 function resetOrders() {
@@ -252,6 +379,7 @@ function resetOrders() {
 	}
 }
 
+*/
 
 /*
 function readCustomerDataFromFile(callback) {

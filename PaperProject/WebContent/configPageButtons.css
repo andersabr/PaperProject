@@ -3,7 +3,7 @@
   position: relative;
   margin: 10px 0;
 }
-.listAllButton {
+.configButton {
   background: #99bfe6;
   border: #888 1px solid;
   color: #111;
@@ -12,36 +12,6 @@
   position: relative;
   right: 0;
   bottom: 0;
-}
-.orderSearchButton {
-  background: #99bfe6;
-  border: #888 1px solid;
-  color: #111;
-  border-radius: 5px;
-  padding: 5px;
-  position: relative;
-  right: 0;
-  bottom: 0;
-}
-.resetCustomersButton {
-  background: #99bfe6;
-  border: #888 1px solid;
-  color: #111;
-  border-radius: 5px;
-  padding: 5px;
-  position: relative;
-  right: 0;
-  bottom: 0;
-}
-.resetOrdersButton {
-   background: #99bfe6;
-   border: #888 1px solid;
-   color: #111;
-   border-radius: 5px;
-   padding: 5px;
-   position: relative;
-   right: 0;
-   bottom: 0;
 }
 .logoutButton{
    background: #99bfe6;

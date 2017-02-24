@@ -14,11 +14,9 @@
 </head>
 <body>
 <div id="searchdiv">
-<label class="listAllButton" onclick="listAllId()">Kundregistret</label>
-<label class="orderSearchButton" onclick="orderSearch()">Beställningar</label>
-
-<!--  label class="emailCustomerButton" onclick="emailCustomer()">E-post till kund</label 
--->
+<label class="configButton" onclick="listAllId()">Kundregistret</label>
+<label class="configButton" onclick="orderSearch()">Beställningar</label>
+<label class="configButton" onclick="utilsPage()">Utils</label>
 <label class="logoutButton" onclick="logout()">Logout</label>
 </div>
 
@@ -27,9 +25,9 @@
 </div>
 
 <h3>Ladda/återställa data</h3>
-<p><label class="resetCustomersButton" onclick="resetCustomers()">Ladda kund-info ifrån fil</label>  json-fil: customers3.json
+<p><label class="configButton" onclick="resetCustomers()">Ladda kund-info ifrån fil</label>  json-fil: customers3.json
 </p>
-<p><label class="resetOrdersButton" onclick="resetOrders()">Ladda beställningar ifrån fil</label>  json-fil: orders2.json
+<p><label class="configButton" onclick="resetOrders()">Ladda beställningar ifrån fil</label>  json-fil: orders2.json
 </p>
 <h3>Konfiguration</h3>
 <div class="container" id="configDIV">
