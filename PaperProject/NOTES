@@ -11,21 +11,21 @@ Uppdatera Kundinfo
 Konfiguration
 E-post till kund
 Login
+Utiliteter
+
 
 
 Issues:
---------
-
+-------
 
 Page: Beställningar
 Issue: After "Uppdatera Beställning" when closing the popup. The page is not reloaded/refreshed.
 
 Page:  Beställningar, Uppdatera Beställning 
-Issue: The products shall have be lited in the order: Serla toa, Serla hh, Lambi Toa and Lambi hh 
+Issue: The products shall have be listed in the order: Serla toa, Serla hh, Lambi Toa and Lambi hh 
 
-
-
-
+Page:  Beställningar
+Issue: The timestamps do not sort
 
 
 Issues that have been fixed:
@@ -37,10 +37,9 @@ Issues that have been fixed:
   Fixed by also syncronizing with orders in Couch when loading Kundregistret  ]  
   																			
 [ Page:  Uppdatera Beställning 
- Issue. Timestamp is stored in the browser cache.
+  Issue. Timestamp is stored in the browser cache.
 
   Fixed by sending unique parameter (e.g. current time) in the http request  ]
-  
   
 [ Page:  Uppdatera Beställning 
   Issue: Fields in form are not aligned on page. 
@@ -64,23 +63,25 @@ Issues that have been fixed:
   Fixed  ]
 
 
-Functions to add:
+Functions in mind:
 -------------
 - Backup of DB
-  Nothing has been done here. Maybe copy some files on the remote DBs.
+  Nothing has been done here. Replicate remote DBs, autmatically copy some files on the remote DBs or 
+  export remote DBs to text.
   
-- Having CouchDB and the nodemailer on a public net
+- Having CouchDB and the nodemailer on a public net requires TLS/SSH.
   CouchDB 2.0 is currently running on a Raspberry Pi (Rasbian) and on Local host (Windows 7)
   Nodemailer is running on local host (Windows 7)
      
-- Javascript libs shall be stored locally 
-  
 - Running without connection
   Should be possible to read DB data from local PouchDB
    
 - Summing up the orders and display result dynamically on top of page "Beställningar"
  
 - Possible to configure mailer URL in config DB, currently it is hardcoded to 127.0.0.1.
+
+
+
  
  
  
