@@ -13,27 +13,7 @@
   right: 0;
   bottom: 0;
 }
-.configPage {
-  background: #99bfe6;
-  border: #888 1px solid;
-  color: #111;
-  border-radius: 5px;
-  padding: 5px;
-  position: relative;
-  right: 0;
-  bottom: 0;
-}
-.orderSearchButton {
-  background: #99bfe6;
-  border: #888 1px solid;
-  color: #111;
-  border-radius: 5px;
-  padding: 5px;
-  position: relative;
-  right: 0;
-  bottom: 0;
-}
-.emailCustomerButton {
+.custSearchButton {
   background: #99bfe6;
   border: #888 1px solid;
   color: #111;
@@ -55,15 +35,5 @@
 }
 .logoutButton:active {
   background-color:red
-}
-.reset {
-   background: #99bfe6;
-   border: #888 1px solid;
-   color: #111;
-   border-radius: 5px;
-   padding: 5px;
-   position: relative;
-   right: 0;
-   bottom: 0;
 }
 
