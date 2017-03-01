@@ -246,17 +246,10 @@ function writeOrderDataFile(data) {
             obj2["totalcost"] = "0";
             obj2["transactiondate"] = "xxxx-xx-xx";	
             
-            
-            /* errors in xml-file:
-            "seralhh" -> serlahh
-            "lanbitoa" -> lambitoa
-            "total"  -> totalcost
-            */
-            
 			obj3["customername"] = data[key]["customername"];
             obj3["lambihh"] = data[key]["lambihh"];
-            obj3["lambitoa"] = data[key]["lanbitoa"];
-            obj3["serlahh"] = data[key]["seralhh"];
+            obj3["lambitoa"] = data[key]["lambitoa"];
+            obj3["serlahh"] = data[key]["serlahh"];
             obj3["serlatoa"] = data[key]["serlatoa"];
             obj3["totalcost"] = data[key]["total"];        
             obj3["transactiondate"] = timestamp.toISOString();

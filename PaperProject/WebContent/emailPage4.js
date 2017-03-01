@@ -7,8 +7,7 @@ $(function(){
 	/*
 	 * var fullUrl =  location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
 	 */
-
-	var mailerUrl = 'http://127.0.0.1:5000';
+	var mailerUrl = 'http://'+localStorage.dbipaddress+':5000';
 	//console.log("mailerUrl: "+mailerUrl);
 
 	/*-----------------------------------------------------------*/

@@ -5,13 +5,13 @@
 		<team>A</team>
 		<contactperson>Kansliet</contactperson>
 		<customername>Ason</customername>
-		<deliveryaddress>Bleckslagaregatan 1</deliveryaddress>
+		<deliveryaddress>Bleckslagaregatan</deliveryaddress>
 		<distlist>Grupp 3A</distlist>
-		<postalcode>164 41</postalcode>
+		<postalcode>123 45</postalcode>
 		<city>Stockholm</city>		
 		<serlatoa>1</serlatoa>
-		<seralhh>2</seralhh>
-		<lanbitoa>3</lanbitoa>
+		<serlahh>2</serlahh>
+		<lambitoa>3</lambitoa>
 		<lambihh>4</lambihh>
 		<total>123</total>
 		<mobile>070-1234567</mobile>
@@ -40,10 +40,10 @@
 		<postalcode>164 41</postalcode>
 		<city>Stockholm</city>		
 		<serlatoa>1</serlatoa>
-		<seralhh>2</seralhh>
-		<lanbitoa>3</lanbitoa>
+		<serlahh>2</serlahh>
+		<lambitoa>3</lambitoa>
 		<lambihh>4</lambihh>
-		<total>123</total>
+		<totalcost>123</totalcost>
 		<mobile>070-1234567</mobile>
 		<phone>08-123456</phone>
 		<sendemail>Nej</sendemail>
