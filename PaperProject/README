@@ -44,6 +44,8 @@ Enable sending E-mails from the web app with mailer server (nodemailer) running 
  
 -Open a cmd-window and "cd" to the directory and execute the command "npm install".
  This will install "nodemailer" and its dependencies.
+ 
+-Install debugger with "npn install debug"
    
 -Start "nodemailer" with the command "node app.js" in the cmd-window. When the server is started it prints "listening on 5000".
 
