@@ -18,9 +18,6 @@ Utiliteter
 Issues:
 -------
 
-Page: Beställningar
-Issue: After "Uppdatera Beställning" when closing the popup. The page is not reloaded/refreshed.
-
 Page:  Beställningar, Uppdatera Beställning 
 Issue: The products shall have be listed in the order: Serla toa, Serla hh, Lambi Toa and Lambi hh 
 
@@ -66,19 +63,21 @@ Issues that have been fixed:
 Functions in mind:
 -------------
 - Backup of DB
-  Nothing has been done here. Replicate remote DBs, autmatically copy some files on the remote DBs or 
-  export remote DBs to text.
-  
+  Export of remote DBs to json files is now possible. Perhaps also look into how remote DBs 
+  can be replicated or howto autmatically backup some of the files on the remote DBs.
+  Possibilty to compress and E-mail backup files to administrator.  
+
 - Having CouchDB and the nodemailer on a public net requires TLS/SSH.
-  CouchDB 2.0 is currently running on a Raspberry Pi (Rasbian) and on Local host (Windows 7)
-  Nodemailer is running on local host (Windows 7)
+  CouchDB 2.0 has been executeed on a Raspberry Pi 3 (Rasbian) and on local host (Windows 7)
+  Nodemailer has been executes on Local host (Wndows 7)
      
 - Running without connection
-  Should be possible to read DB data from local PouchDB
+  Possiblity to read data from local PouchDB only when CouchDB is not available?
    
-- Summing up the orders and display result dynamically on top of page "Beställningar"
+- Summing up the orders and display result dynamically on top of page "Beställningar".
+
+
  
-- Possible to configure mailer URL in config DB, currently it is hardcoded to 127.0.0.1.
 
 
 

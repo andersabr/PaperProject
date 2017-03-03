@@ -96,13 +96,11 @@ Howto convert the excel-data to Json-files (customers.json and orders.json) that
     }
   }
   
-  The JSON-file now contains an "array of objects".
-
- - Save the file in UTF8 format.
+  The JSON-file now contains an "array of objects". Now save the JSON-file in UTF8 format.
  
  - Convert the file using the page "Utils" (button on "Konfiguration" page). 
    When selecting the JSON-file from the local filesystem, the file "customers.json" or "orders.json" 
-   will be created (2 separate coversions of the same input file).
+   will be created (2 separate executins/coversions of the same input file is needed).
    
    
    
