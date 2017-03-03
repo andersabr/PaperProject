@@ -24,7 +24,7 @@ execFileSelectorCustomers();
 <script>
 execFileSelectorOrders();
 </script>
-<h3>Ladda konverterat kund- och orderdata</h3>
+<h3>Ladda kund- och orderdata/backup</h3>
 <P>Ladda kunddata:<b></b>
 <input type="file" id="load-customers"  single>
 <script>
@@ -35,11 +35,18 @@ execLoadCustomers();
 <script>
 execLoadOrders();
 </script>
-<!--  
-<h3>Ladda produktionsdata</h3>
-<label class="resetPage" onclick="resetCustomers()">Ladda Kundregister</label>
-<P>
-<label class="resetOrdersButton" onclick="resetOrders()">Ladda Beställningar</label>
--->
+<h3>Verifiera backuper</h3>
+<P>Verifiera kunddata backup:<b></b>
+<input type="file" id="verify-customers" single>
+<script>
+execVerifyCustomers();
+</script>
+<P>Verifiera orderdata backup:<b></b>
+<input type="file" id="verify-orders" single>
+<script>
+execVerifyOrders();
+</script>
+<P><br><br><br><br></P>
+<div id="loggingarea"><b></b></div>
 </body>
 </html>

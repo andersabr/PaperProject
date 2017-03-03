@@ -8,6 +8,7 @@
 <script src="jquery-ui.min.js"></script>
 <script src="pouchdb-6.1.2.min.js"></script>
 <script src="pouchdb.authentication.min.js"></script>
+<script src="fileSelector.js"></script>
 <script src="pouchReadWrite10.js"></script>
 <script src="jsHelpFunctions2.js"></script>
 <script src="configPage3.js"></script>
@@ -24,7 +25,7 @@
 <div class="container" id="dbIpDIV">
 </div>
 
-<h3>Ladda/återställa data</h3>
+<h3>Ladda/återställa test data</h3>
 <p><label class="configButton" onclick="resetCustomers()">Ladda kund-info ifrån fil</label>  json-fil: customers3.json
 </p>
 <p><label class="configButton" onclick="resetOrders()">Ladda beställningar ifrån fil</label>  json-fil: orders2.json
@@ -32,8 +33,12 @@
 <h3>Konfiguration</h3>
 <div class="container" id="configDIV">
 </div>
-<script>	    
+<script>
 createConfigPage();
 </script>
+<h3>Backup</h3>
+<p><label class="configButton" onclick="doBackupCustomers()">Backa upp kund-info till fil</label>
+</p>
+<p><label class="configButton" onclick="doBackupOrders()">Backa upp beställningar till fil</label> 
 </body>
 </html>

@@ -162,8 +162,7 @@ function createDbIpAddressForm() {
 
 	var dbipaddress;
 	// get value from local store
-	
-	console.log(localStorage.dbipaddress);
+	//console.log(localStorage.dbipaddress);
 	
 	if (localStorage.dbipaddress != undefined ) {
 		dbipaddress = localStorage.dbipaddress;
@@ -201,7 +200,7 @@ function saveDbIp() {
 	// read value from form and write in local store
 	var dbipaddress = document.forms['dbipform'].elements[0].value;
 	// set local store
-	console.log(dbipaddress);
+	//console.log(dbipaddress);
 	if (dbipaddress) {
 	    localStorage.dbipaddress = dbipaddress
 	} else {
@@ -217,7 +216,7 @@ function createConfigForm(config) {
 	// this is the callback function, creating the form
 	// using current config stored in the DB
 
-	console.log(config);
+	//console.log(config);
 		
 	//config["_id"] = "CONF0001";
 	//config["serlatoa_price"] = "160";
@@ -359,8 +358,6 @@ function createConfigForm(config) {
 }
 
 
- 
-
 function listAllId() {
     // change page
     location.assign("./custSearch10.html");
@@ -382,6 +379,18 @@ function logout() {
 		console.log(error);
 	});
 }
+
+
+function doBackupCustomers() {
+	var res = readCustomerDataFromDB(backupCustomers);
+}
+
+
+function doBackupOrders() {
+	console.log("calling readOrdersDataFromDB");
+	var res = readOrdersDataFromDB(backupOrders);
+}	    
+
 
 
 

@@ -49,6 +49,20 @@ function addCustomerToPouchAndCustEdit(custobj,orderobj) {
 }
 
 
+function backupCustomers(obj) {
+	var timestamp = new Date().toISOString();
+	var filename = "backup_customers_"+timestamp+".json";
+	saveTextAsFile(obj,filename)
+}
+
+
+function backupOrders(obj) {
+	var timestamp = new Date().toISOString();
+	var filename = "backup_orders_"+timestamp+".json";
+	saveTextAsFile(obj,filename)
+}
+
+
 function emailCustomers(obj) {
 	config.log(obj);
 }
@@ -82,6 +96,7 @@ function fillBulkEmailPageWithData(config) {
 	readCustomerDataFromDB(tableFillInToo);
 
 }
+
 
 
 function fillEmailPageWithData(config) {
@@ -384,13 +399,14 @@ function readOrdersDataFromDB(callback) {
 	}).on('complete', function (info) {
 		//console.log(info);
 		//var database = new PouchDB('orders');
-		if(callback != null) {   // check if function instead!!!
+		if(callback != null) {   
+			//console.log(callback);
 			var dbOrd = new PouchDB("orders");
 			dbOrd.allDocs({
 				include_docs: true
 			}).then(function (resultOrdersFromPouch) {
 				//console.log("readOrdersDataFromDB 2");
-				//console.log(resultPouch);
+				//console.log(resultOrdersFromPouch);
 				// here DB format is converted to Widget format
 				retrieveDocsFromDBresult(resultOrdersFromPouch,callback);
 			}).catch(function (err) {
@@ -467,6 +483,7 @@ function replicateToCouch(localDb,remoteDb) {
 	}).on('complete', function (info) {
 		console.log("complete!");
 		console.log(info);
+		$("#loggingarea").append("Replication to remote DB complete<br>");
 		//location.assign(pageURL);
 	}).on('error', function (err) {
 		console.log("handle error");
@@ -513,18 +530,40 @@ function replicateToCouchAndShowPageToo(localCustDb, remoteCustDb, localOrdersDb
 }
 
 
-function retrieveDocsFromDBresult(DbAllDocsResult,callback) {
-	// prepares DbAllDocsResult for JQuery widget and calls the widget
+function retrieveDocsFromDBresult(DbAllDocsResult, callback) {
+	// prepares DbAllDocsResult for JQuery widget and for backup
 	var obj = DbAllDocsResult;
 	var docs = obj["rows"];
 	var docsForWidget = new Object();
+	//console.log(DbAllDocsResult);
 
 	// call widget, "callback" is function containg the JQurery widget used when creating the page 
 	if (typeof callback === "function") {
-		if (callback === "createCustomersTable" ) {
+		if (callback == "createCustomersTable" ) {
 			for(var i=0; i < docs.length; i++) {
 				docsForWidget[docs[i]["doc"]["_id"]]= docs[i]["doc"];
 			}	 
+		}
+		else if (callback == backupCustomers) {
+			//output array of objects, exclude "_rev"
+			obj2 = [];
+			for(var i=0; i < docs.length; i++) {
+              obj2[i] = docs[i]["doc"];
+  			  delete obj2[i]["_rev"];
+			}
+			docsForWidget = obj2;
+            //console.log(docsForWidget);
+		}
+		else if (callback == backupOrders) {
+			//console.log("backupOrders");
+			//output array of objects, exclude "_rev"
+			obj2 = [];
+			for(var i=0; i < docs.length; i++) {
+              obj2[i] = docs[i]["doc"];
+  			  delete obj2[i]["_rev"];
+			}
+			docsForWidget = obj2;
+            //console.log(docsForWidget);
 		}
 		else {
 			// here's the ordersTable...no changes yet :-)
@@ -632,6 +671,29 @@ function storeBulkInPouchAndRead(jsonData, callback, file) {
 	}
 } 
 
+function verifyStoreBulkInPouch(jsonData) {
+   // verifying backups
+	var db = new PouchDB('testdb');
+	var remoteDb =  PouchDB(couchdbURL+'testdb');
+
+	if(jsonData != null) {
+		console.log(jsonData);
+		// load data read from file into DB
+		db.destroy().then(function () {
+			return new PouchDB('testdb');
+		}).then(function (db) {
+			// storing all docs in Pouch
+			db.bulkDocs(jsonData).then(function () {
+				return db.allDocs({include_docs: true});
+			}).then(function (resultPouch) {
+				$("#loggingarea").append("Data succesfully loaded into DB<br>");
+				replicateToCouch('testdb',couchdbURL+'testdb');
+			}).catch(function (err) {
+				console.log(err);
+			});  // end catch
+		}) // end then
+	}
+} 
 
 function storeBulkInPouchAndReadOrders(jsonData,callback) {
 	// if jsonData != null, creates DB with jsonData

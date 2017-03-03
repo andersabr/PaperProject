@@ -6,6 +6,7 @@
 .columnSelector, .hidden {
   display: none;
 }
+/*
 #.columnSelectorButton {
   background: #99bfe6;
   border: #888 1px solid;
@@ -17,6 +18,7 @@
   bottom: 0;
   z-index:1;
 }
+*/
 #colSelect1:checked + label {
   background: #5797d7;
   border-color: #555;
@@ -24,6 +26,7 @@
 #colSelect1:checked ~ #columnSelector {
   display: block;
 }
+/*
 #.columnSelector {
   position: absolute;
   top: 30px;
@@ -32,6 +35,7 @@
   border: #99bfe6 1px solid;
   border-radius: 5px;
 }
+*/
 .columnSelector label {
   display: block;
 }

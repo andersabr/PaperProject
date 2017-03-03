@@ -1,6 +1,6 @@
 var couchdbURL = 'http://'+localStorage.dbipaddress+':5984/';
 
-/**/
+
 function execFileSelectorCustomers() {
 	var fileInput = document.getElementById("your-files-customers");
 	fileInput.addEventListener("change", function(e) {
@@ -61,22 +61,54 @@ function execLoadCustomers() {
 			
 			var obj = JSON.parse(reader.result);
 			console.log(obj);
-			
-			resetCustomersFromLocalFS(obj)
+			$("#loggingarea").empty().append("File has been succcessfully read<br>");
+			resetCustomersFromLocalFS(obj,null)
 			
 		}
 	});
 }
 
 /**/
-function resetCustomersFromLocalFS(obj) {
+function execVerifyCustomers() {
+	var fileInput = document.getElementById("verify-customers");
+	fileInput.addEventListener("change", function(e) {
+
+		var file = fileInput.files[0];
+		console.log(file);
+		
+		var textType = /text.*/;
+		var reader = new FileReader();
+		
+		reader.readAsText(file,'utf-8');	
+		reader.onload = function(e) {
+			
+			var obj = JSON.parse(reader.result);
+			console.log(obj);
+			$("#loggingarea").empty().append("File has been succcessfully read<br>");
+			resetCustomersFromLocalFS(obj,"verify")
+			
+		}
+	});
+}
+
+
+
+
+/**/
+function resetCustomersFromLocalFS(obj,action) {
 	/*
 	 * ONLY INTEDED FOR DESIGN PURPOSES 
 	 * clears Pouche, clears Couch and the table,
 	 * Therafter reads the data from file and stores in all the DBs
 	 * Finally loads the start table
 	 */
-	var remoteDb = new PouchDB(couchdbURL+'remcust');
+	console.log(action);
+	if(action == null) {
+		var remoteDb = new PouchDB(couchdbURL+'remcust');
+	}
+	else {
+		var remoteDb = new PouchDB(couchdbURL+'testdb');
+	}
     remoteDb.getSession()
 	.then(function(response) {
 		if (!response.userCtx.name) {
@@ -85,19 +117,35 @@ function resetCustomersFromLocalFS(obj) {
 			location.assign('loginPage.html?page=fileSelector.html');	
 		} else if (response.userCtx.name) {
 			console.log(response['userCtx']);
-			var db = new PouchDB('customers');
-			var remoteDb = new PouchDB(couchdbURL+'remcust');
+			$("#loggingarea").append("Logged in as admin<br>");
+			if(action != null) {
+				var remoteDb = new PouchDB(couchdbURL+'testdb');
+				var db = new PouchDB('testdb');
+			}
+			else {
+			    var remoteDb = new PouchDB(couchdbURL+'remcust');
+			    var db = new PouchDB('customers');
+		    }
 			var x;
 			
 			if (confirm("ÄR DU 100% SÄKER? DATABASEN MED ALLA KUNDER KOMMER ATT RADERAS !!") == true) {
 				db.destroy().then(function (response) {
 					console.log("PouchDB cleared");
+					$("#loggingarea").append("Local DB cleared<br>");
 					remoteDb.destroy().then(function (response) { 
 						console.log("CouchDB cleared");
+						$("#loggingarea").append("Remote DB cleared<br>");
 						// clears the table 
 						$('#nisse tbody > tr').remove();
 						// read data from file, store in Pouch and reload page
-						storeBulkInPouchAndRead(obj,null,"./custSearch10.html"); 
+						if(action != null) {
+							$("#loggingarea").append("Executing verification...<br>");
+							verifyStoreBulkInPouch(obj);
+						}
+						else {
+							$("#loggingarea").append("Loading DB, rendering the webpage...<br>");
+							storeBulkInPouchAndRead(obj,null,"./custSearch10.html");
+						}
 					});
 				}).catch(function (err) {
 					console.log(err);
@@ -126,30 +174,65 @@ function execLoadOrders() {
 			
 			var obj = JSON.parse(reader.result);
 			console.log(obj);
-			
-			resetOrdersFromLocalFS(obj);			
+			$("#loggingarea").empty().append("File has been succcessfully read<br>");
+			resetOrdersFromLocalFS(obj,null);			
 		}
 	});
 }
 
-function resetOrdersFromLocalFS(obj) {
+function execVerifyOrders() {
+	var fileInput = document.getElementById("verify-orders");
+	fileInput.addEventListener("change", function(e) {
+
+		var file = fileInput.files[0];
+		console.log(file);
+		
+		var textType = /text.*/;
+		var reader = new FileReader();
+		
+		reader.readAsText(file,'utf-8');	
+		reader.onload = function(e) {
+			
+			var obj = JSON.parse(reader.result);
+			console.log(obj);
+			$("#loggingarea").empty().append("File has been succcessfully read<br>");
+			resetOrdersFromLocalFS(obj,"verify");			
+		}
+	});
+}
+
+
+
+function resetOrdersFromLocalFS(obj,action) {
 	/*
 	 * ONLY INTEDED FOR DESIGN PURPOSES
 	 * clears Pouche, clears Couch and the table,
 	 * Therafter reads the data from file and stores in all the DBs
 	 * Finally loads the start table
 	 */
+	if(action == null) {
+		var remoteDb = new PouchDB(couchdbURL+'remorders');
+	} 
+	else {
+		var remoteDb = new PouchDB(couchdbURL+'testdb');
+	}
 
-	var remoteDb = new PouchDB(couchdbURL+'remorders');
 	remoteDb.getSession()
 	.then(function(response) {
 		if (!response.userCtx.name) {
 			// not logged in
 			location.assign('loginPage.html?page=fileSelector.html');	
 		} else if (response.userCtx.name) {
+			$("#loggingarea").append("Logged in as admin<br>");
 			console.log(response['userCtx']);
-			var db = new PouchDB('orders');
-			var remoteDb = new PouchDB(couchdbURL+'remorders');
+			if(action == null) {
+				var db = new PouchDB('orders');
+				var remoteDb = new PouchDB(couchdbURL+'remorders');
+			} 
+			else {
+				var db = new PouchDB('testdb');
+				var remoteDb = new PouchDB(couchdbURL+'testdb');
+			}
 			var x;
 
 			if (confirm("ÄR DU 100% SÄKER? DATABASEN MED ALLA BESTÄLLNINGAR KOMMER ATT RADERAS !!") == true) {
@@ -157,13 +240,20 @@ function resetOrdersFromLocalFS(obj) {
 				db.destroy()
 				.then(function (response) {
 					console.log("PouchDB cleared");
+					$("#loggingarea").append("Local DB cleared<br>");
 					remoteDb.destroy().then(function (response) { 
-						console.log("CouchDB cleared");
+						console.log("Remote DB cleared");
+						$("#loggingarea").append("Remote DB cleared<br>");
 						// clears the table 
 						$('#nisse tbody > tr').remove();
-						
-						storeBulkInPouchAndReadOrders(obj,null);
-						//readOrdersDataFromFile(null);
+						if(action == null) {
+							$("#loggingarea").append("Loading DB, rendering the webpage...<br>");
+							storeBulkInPouchAndReadOrders(obj,null);
+						}
+						else {
+							$("#loggingarea").append("Executing verification..<br>");
+							verifyStoreBulkInPouch(obj);
+						}
 					});
 				})
 				.catch(function (err) {
