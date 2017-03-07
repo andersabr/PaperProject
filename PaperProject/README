@@ -33,19 +33,18 @@ Running the web app for the first time
 
 
 
-Enable sending E-mails from the web app with mailer server (nodemailer) running on windows 
+Enable sending E-mails from the web app with mailer server (nodemailer) 
 ===========================================================================================
--Goto https://nodejs.org/download/release/v4.2.3/ and download "node-v4.2.3-x64.msi"
+-Goto "https://nodejs.org/en/" and downnload v7.7.1 of "nodejs". The following instruction is for
+ windows but nodejs is available for installtion on Macintosh and other platforms as well.
 
--Double-click on "node-v4.2.3-x64.msi" to install node.js on windows.
+-Double-click on "node-v7.1.1-x64.msi" to install node.js on windows.
 
 -Fetch the files "app.js" and "packeage.json" from "https://github.com/andersabr/PaperProject/tree/master/PaperProject/Utils"
  and store them in the directory were you want to start the mailer (nodemailer).
  
 -Open a cmd-window and "cd" to the directory and execute the command "npm install".
  This will install "nodemailer" and its dependencies.
- 
--Install debugger with "npn install debug"
    
 -Start "nodemailer" with the command "node app.js" in the cmd-window. When the server is started it prints "listening on 5000".
 
